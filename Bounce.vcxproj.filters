@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichier sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameLogic">
+      <UniqueIdentifier>{5d67ad40-38e0-4149-a7f1-2219f11e1c6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Structures">
+      <UniqueIdentifier>{942b3e6a-3062-44fa-a4b6-5fb9460fd7a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichier sources\GameLogic">
+      <UniqueIdentifier>{d308f048-7840-40af-8aa5-8f626aaae018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichier sources\Structures">
+      <UniqueIdentifier>{f88a46ca-c649-45f1-b919-142539012f2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichier sources\Debug">
+      <UniqueIdentifier>{be7d9b8e-fa5a-4a91-a471-8ef15d7dbb95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Debug">
+      <UniqueIdentifier>{b8c288a9-f432-4687-84fa-168976a570f5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Fichier sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Vectors.cpp">
+      <Filter>Fichier sources\Structures</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="include.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="World.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="Vectors.hpp">
+      <Filter>Fichiers d%27en-tête\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Errors.hpp">
+      <Filter>Fichiers d%27en-tête\Debug</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+</Project>
