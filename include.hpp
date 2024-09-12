@@ -24,8 +24,8 @@
 #define PUBLIC public
 
 // Serializable class by the engine
-#define BCLASS class [[BOUNCE_CLASS]]
+#define BCLASS class
 
 // Defines a property and accessors by its: Getting access, Setting access, type, and name.
 // Serializable by the engine.
-#define BPROPERTY(get_access, set_access, type, property) get_access : type property; CONCAT(CONCAT(get_access, : type [[BOUNCE_FUNCTION]]Get##property() { return this->##property; }) , CONCAT(set_access , : void [[BOUNCE_FUNCTION]]Set##property(type value) { this->##property = value; }))
+#define BPROPERTY(get_access, set_access, type, property) get_access : type property; CONCAT(CONCAT(get_access, : type Get##property() { return this->##property; }) , CONCAT(set_access , : void Set##property(type value) { this->##property = value; }))
