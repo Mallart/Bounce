@@ -9,15 +9,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichier sources">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\GameLogic">
       <UniqueIdentifier>{5d67ad40-38e0-4149-a7f1-2219f11e1c6d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers d%27en-tête\Structures">
       <UniqueIdentifier>{942b3e6a-3062-44fa-a4b6-5fb9460fd7a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Debug">
+      <UniqueIdentifier>{b8c288a9-f432-4687-84fa-168976a570f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichier sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Fichier sources\GameLogic">
       <UniqueIdentifier>{d308f048-7840-40af-8aa5-8f626aaae018}</UniqueIdentifier>
@@ -27,9 +30,6 @@
     </Filter>
     <Filter Include="Fichier sources\Debug">
       <UniqueIdentifier>{be7d9b8e-fa5a-4a91-a471-8ef15d7dbb95}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Debug">
-      <UniqueIdentifier>{b8c288a9-f432-4687-84fa-168976a570f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +58,12 @@
     </ClInclude>
     <ClInclude Include="Errors.hpp">
       <Filter>Fichiers d%27en-tête\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Fichiers d%27en-tête\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

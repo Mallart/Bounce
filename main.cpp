@@ -9,7 +9,7 @@
 namespace Bounce
 {
 
-	void handleEvents(sf::Window& window)
+	static void handleEvents(sf::Window& window)
 	{
 		sf::Event event;
 		while (window.pollEvent(event))
@@ -24,7 +24,7 @@ namespace Bounce
 		}
 	}
 
-	void runWindow(sf::RenderWindow& window)
+	static void runWindow(sf::RenderWindow& window)
 	{
 		while (window.isOpen())
 		{
@@ -39,12 +39,18 @@ namespace Bounce
 }
 
 #ifdef TESTS
-void test()
+static void test()
 {
-	Bounce::Maths::Vector<long double> v3(5.f, 2.f, 6.f);
-	Bounce::Maths::Vector<long double> v3_2(3.f, 2.f, 4.f);
+	Bounce::Maths::Vector<int> _vec;
+	_vec = Bounce::Maths::Vector<int>{ 4, 5, 6 };
+	::std::cout << _vec.ToString() << ::std::endl;
+	::std::cout << _vec.Zero().Set(5, 2).ToString() << ::std::endl;
+	Bounce::Maths::Vector<long double> v3{5.f, 2.f, 6.f};
+	Bounce::Maths::Vector<long double> v3_2{ 3.f, 2.f, 4.f };
 	std::cout << v3.Magnitude() << std::endl;
 	std::cout << v3.Distance(v3_2) << std::endl;
+	Bounce::Maths::Vector<long double> v12{ 5, 7, 8, 9, 5, 8, 3, 5, 7, 8, 3, 4 };
+	std::cout << v12.ToString() << std::endl;
 	exit(Bounce::Errors::NO_ERROR);
 }
 #endif
@@ -53,7 +59,9 @@ int main()
 {
 	// window declaration (keep only one window)
 	sf::RenderWindow window;
+#ifdef TESTS
 	test();
+#endif
 	window.create(sf::VideoMode(1920, 1080), "Bounce Physics", sf::Style::Fullscreen);
 	window.setFramerateLimit(MAX_FPS);
 	Bounce::runWindow(window);

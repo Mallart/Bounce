@@ -8,7 +8,7 @@ namespace Bounce
 		enum RuntimeError
 		{
 			NO_ERROR,
-			// occurs when trying to get or set an out of bounds value
+			// Occurs when trying to get or set an out of bounds value
 			OUT_OF_BOUNDS,
 		};
 	}

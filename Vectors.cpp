@@ -4,87 +4,86 @@ namespace Bounce
 {
 	namespace Maths
 	{
-
-		template<typename T>
-		Vector<T> Vector<T>::operator+(const Vector<T>& v1)
+		Vector2::Vector2(long long x, long long y) : Vector<long long>{ x, y }
 		{
-			Vector<T> const bigger = v1.Size() > this->Size() ? v1 : *this;
-			Vector<T> v(bigger);
-			for (size_t i = 0; i < bigger.Size(); ++i)
-				v.Set(i, this->Get(i) + v1.Get(i));
-			return v;
+			values.push_back(x);
+			values.push_back(y);
 		}
 
-		template<typename T>
-		Vector<T> Vector<T>::operator*(const Vector<T>& v1)
+		long long Vector2::x()
 		{
-			Vector<T> const bigger = v1.Size() > this->Size() ? v1 : *this;
-			Vector<T> v(bigger);
-			for (size_t i = 0; i < bigger.Size(); ++i)
-				v.Set(i, this->Get(i) * v1.Get(i));
-			return v;
+			return values[0];
 		}
 
-		template<typename T>
-		Vector<T> Vector<T>::operator/(const Vector<T>& v1)
+		long long Vector2::y()
 		{
-			Vector<T> const bigger = v1.Size() > this->Size() ? v1 : *this;
-			Vector<T> v(bigger);
-			for (size_t i = 0; i < bigger.Size(); ++i)
-				v.Set(i, static_cast<long double>(this->Get(i) / v1.Get(i)));
-			return v;
-		}
-
-		template<typename T>
-		Vector<T> Vector<T>::operator-(const Vector<T>& v1)
-		{
-			Vector<T> bigger = v1.Size() > this->Size() ? v1 : *this;
-			Vector<T> v(bigger);
-			for (size_t i = 0; i < bigger.Size(); ++i)
-				v.Set(i, this->Get(i) - v1.Get(i));
-			return v;
-		}
-
-		template<typename T>
-		Vector<T> Vector<T>::operator==(const Vector<T>& v1)
-		{
-			if (Size() != v1.Size())
-				return false;
-			for (size_t i = 0; i < Size(); ++i)
-				if (Get(i) != v1.Get(i))
-					return false;
-			return false;
-		}
-
-		Vector2::Vector2(long long x, long long y) : Vector<long long>(x, y)
-		{
-			this->x = x;
-			this->y = y;
+			return values[1];
 		}
 
 		Vector3::Vector3(long long x, long long y, long long z) : Vector2(x, y)
 		{
-			this->z = z;
+			values.push_back(z);
+		}
+
+		long long Vector3::z()
+		{
+			return values[2];
 		}
 
 		Vector4::Vector4(long long x, long long y, long long z, long long w) : Vector3(x, y, z)
 		{
-			this->w = w;
+			values.push_back(w);
 		}
-		Vector2d::Vector2d(long double x, long double y) : Vector<long double>(x, y)
+
+		long long Vector4::w()
 		{
-			this->x = x;
-			this->y = y;
+			return values[3];
+		}
+
+		Vector2d::Vector2d(long double x, long double y) : Vector<long double>{ x, y }
+		{
+			values.push_back(x);
+			values.push_back(y);
+		}
+
+		long double Vector2d::x()
+		{
+			return values[0];
+		}
+
+		long double Vector2d::y()
+		{
+			return values[1];
 		}
 
 		Vector3d::Vector3d(long double x, long double y, long double z) : Vector2d(x, y)
 		{
-			this->z = z;
+			values.push_back(z);
+		}
+
+		long double Vector3d::z()
+		{
+			return values[2];
 		}
 
 		Vector4d::Vector4d(long double x, long double y, long double z, long double w) : Vector3d(x, y, z)
 		{
-			this->w = w;
+			values.push_back(w);
 		}
+
+		long double Vector4d::w()
+		{
+			return values[3];
+		}
+
+
+		const Vector3 Vector3::One(0, 0, 0);
+		const Vector3 Vector3::Zero(0, 0, 0);
+		const Vector3 Vector3::Up(0, 1, 0);
+		const Vector3 Vector3::Down(0, -1, 0);
+		const Vector3 Vector3::Left(-1, 0, 0);
+		const Vector3 Vector3::Right(1, 0, 0);
+		const Vector3 Vector3::Back(0, 0, -1);
+		const Vector3 Vector3::Forward(0, 0, -1);
 	}
 }

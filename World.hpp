@@ -5,7 +5,7 @@ namespace Bounce
 {
 
 	// Class to describe the behavior of a scene.
-	BCLASS World : Object
+	BCLASS() World : Object
 	{
 	public:
 

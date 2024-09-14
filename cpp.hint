@@ -2,3 +2,5 @@
 // tels que les noms de fonctions et de macros.
 // Pour plus d'informations, consultez https://go.microsoft.com/fwlink/?linkid=865984
 #define BPROPERTY(get_access, set_access, type, property) CONCAT(CONCAT(get_access, _GET_) , CONCAT(set_access , _SET ## ( ## type, property ## )));
+#define BCLASS() class;
+

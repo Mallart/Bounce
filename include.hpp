@@ -1,12 +1,11 @@
 #pragma once
 
-// external includes to make the program work
+// external includes to make the program work, as well as some preprocessor definitions to handle it all
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Config.hpp>
-
-#include "Vectors.hpp"
+#include <string>
 
 #define BOUNCE_FUNCTION bf
 #define BOUNCE_CLASS bc
@@ -24,7 +23,7 @@
 #define PUBLIC public
 
 // Serializable class by the engine
-#define BCLASS class
+#define BCLASS() class
 
 // Defines a property and accessors by its: Getting access, Setting access, type, and name.
 // Serializable by the engine.
