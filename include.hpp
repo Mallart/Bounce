@@ -7,6 +7,8 @@
 #include <SFML/Config.hpp>
 #include <string>
 
+#include "IO.hpp"
+
 #define BOUNCE_FUNCTION bf
 #define BOUNCE_CLASS bc
 
@@ -28,3 +30,6 @@
 // Defines a property and accessors by its: Getting access, Setting access, type, and name.
 // Serializable by the engine.
 #define BPROPERTY(get_access, set_access, type, property) get_access : type property; CONCAT(CONCAT(get_access, : type Get##property() { return this->##property; }) , CONCAT(set_access , : void Set##property(type value) { this->##property = value; }))
+// Defines a property and virtual accessors by its: Getting access, Setting access, type, and name.
+// Serializable by the engine.
+#define V_BPROPERTY(get_access, set_access, type, property) get_access : type property; CONCAT(CONCAT(get_access, : virtual type Get##property() { return this->##property; }) , CONCAT(set_access , : virtual void Set##property(type value) { this->##property = value; }))

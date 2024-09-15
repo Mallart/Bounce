@@ -39,6 +39,9 @@
     <ClCompile Include="Vectors.cpp">
       <Filter>Fichier sources\Structures</Filter>
     </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Fichier sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.hpp">
