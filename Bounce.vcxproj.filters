@@ -40,7 +40,7 @@
       <Filter>Fichier sources\Structures</Filter>
     </ClCompile>
     <ClCompile Include="World.cpp">
-      <Filter>Fichier sources</Filter>
+      <Filter>Fichier sources\GameLogic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +66,21 @@
       <Filter>Fichiers d%27en-tête\Structures</Filter>
     </ClInclude>
     <ClInclude Include="Maths.hpp">
+      <Filter>Fichiers d%27en-tête\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="IO.hpp">
+      <Filter>Fichiers d%27en-tête\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Body.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="Being.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
