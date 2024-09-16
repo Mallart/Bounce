@@ -10,7 +10,7 @@ namespace Bounce
 		// World's Uri (path to file)
 		BPROPERTY(public, protected, ::std::string, Uri);
 		// World content
-		BPROPERTY(public, protected, ::std::vector<Object>, Objects);
+		BPROPERTY(public, protected, ::std::vector<Object&>, Objects);
 	public:
 		World(::std::string _Uri);
 		// Creates a new world. Same as calling World constructor with a URI pointing to an unavailable ressource.

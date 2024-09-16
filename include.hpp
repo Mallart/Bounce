@@ -5,5 +5,6 @@
 #include <SFML/Window.hpp>
 #include <SFML/Config.hpp>
 #include <string>
+#include <cstdint>
 
 #include "Macros.hpp"

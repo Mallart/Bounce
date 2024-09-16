@@ -15,8 +15,16 @@
 #define PRIVATE private
 #define PUBLIC public
 
-// Serializable class by the engine
+// Serializable class by the engine.
+// Engine will throw an error in a future version if you put this identifier without any constructor.
 #define BCLASS() class
+
+// Serializable interface by the engine.
+// An interface is a class that cannot be instantiated. The engine will throw an error if you put a regular class there.
+#define BINTERFACE() class
+
+// Serializable enum.
+#define BENUM() enum
 
 // Defines a property and accessors by its: Getting access, Setting access, type, and name.
 // Serializable by the engine.
