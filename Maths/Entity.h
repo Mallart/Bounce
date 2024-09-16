@@ -1,15 +1,15 @@
 #pragma once
+#include "../include.hpp"
 #include <cmath>
 #include <string>
-#include "include.hpp"
-#include "Errors.hpp"
+#include "../Debug/Errors.hpp"
 
 namespace Bounce
 {
 	namespace Maths
 	{
 		// A mathematical entity.
-		class Entity
+		BCLASS() Entity
 		{
 		public:
 			virtual ::std::string ToString() = 0;

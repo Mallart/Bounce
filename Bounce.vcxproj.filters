@@ -12,9 +12,6 @@
     <Filter Include="Fichiers d%27en-tête\GameLogic">
       <UniqueIdentifier>{5d67ad40-38e0-4149-a7f1-2219f11e1c6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Structures">
-      <UniqueIdentifier>{942b3e6a-3062-44fa-a4b6-5fb9460fd7a5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\Debug">
       <UniqueIdentifier>{b8c288a9-f432-4687-84fa-168976a570f5}</UniqueIdentifier>
     </Filter>
@@ -34,63 +31,72 @@
     <Filter Include="Fichiers d%27en-tête\GameLogic\Components">
       <UniqueIdentifier>{d83b1780-5b46-43c1-9e9a-1e862bc4bcf2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Maths">
+      <UniqueIdentifier>{942b3e6a-3062-44fa-a4b6-5fb9460fd7a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\IO">
+      <UniqueIdentifier>{c846a776-9fc5-401a-8f82-08dadbe05384}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Fichier sources</Filter>
     </ClCompile>
-    <ClCompile Include="Vectors.cpp">
-      <Filter>Fichier sources\Structures</Filter>
-    </ClCompile>
-    <ClCompile Include="World.cpp">
+    <ClCompile Include="GameLogic\World.cpp">
       <Filter>Fichier sources\GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\Vectors.cpp">
+      <Filter>Fichier sources\Structures</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
-    </ClInclude>
-    <ClInclude Include="include.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
-    </ClInclude>
-    <ClInclude Include="World.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
-    </ClInclude>
-    <ClInclude Include="Vectors.hpp">
-      <Filter>Fichiers d%27en-tête\Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="Errors.hpp">
-      <Filter>Fichiers d%27en-tête\Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Fichiers d%27en-tête\Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths.hpp">
-      <Filter>Fichiers d%27en-tête\Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="IO.hpp">
-      <Filter>Fichiers d%27en-tête\Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="Body.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
-    </ClInclude>
-    <ClInclude Include="Being.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
-    </ClInclude>
-    <ClInclude Include="Component.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Debug\Errors.hpp">
       <Filter>Fichiers d%27en-tête\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="Singleton.hpp">
+    <ClInclude Include="GameLogic\Components\Component.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Being.hpp">
       <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Body.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Game.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Object.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Player.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Singleton.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\World.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="include.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Entity.h">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Maths.hpp">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Vectors.hpp">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\IO.hpp">
+      <Filter>Fichiers d%27en-tête\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="BounceEngine.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Macros.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

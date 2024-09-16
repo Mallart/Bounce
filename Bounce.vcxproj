@@ -136,26 +136,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameLogic\World.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Vectors.cpp" />
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="Maths\Vectors.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Being.hpp" />
-    <ClInclude Include="Body.hpp" />
-    <ClInclude Include="Component.hpp" />
     <ClInclude Include="Debug\Errors.hpp" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="Errors.hpp" />
-    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="BounceEngine.hpp" />
+    <ClInclude Include="GameLogic\Being.hpp" />
+    <ClInclude Include="GameLogic\Body.hpp" />
+    <ClInclude Include="GameLogic\Components\Component.hpp" />
+    <ClInclude Include="GameLogic\Game.hpp" />
+    <ClInclude Include="GameLogic\Object.hpp" />
+    <ClInclude Include="GameLogic\Player.hpp" />
+    <ClInclude Include="GameLogic\Singleton.hpp" />
+    <ClInclude Include="GameLogic\World.hpp" />
     <ClInclude Include="include.hpp" />
-    <ClInclude Include="IO.hpp" />
-    <ClInclude Include="Maths.hpp" />
-    <ClInclude Include="Object.hpp" />
-    <ClInclude Include="Player.hpp" />
-    <ClInclude Include="Singleton.hpp" />
-    <ClInclude Include="Vectors.hpp" />
-    <ClInclude Include="World.hpp" />
+    <ClInclude Include="IO\IO.hpp" />
+    <ClInclude Include="Macros.hpp" />
+    <ClInclude Include="Maths\Entity.h" />
+    <ClInclude Include="Maths\Maths.hpp" />
+    <ClInclude Include="Maths\Vectors.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

@@ -1,8 +1,8 @@
 #include <iostream>
-#include "include.hpp"
-#include "Game.hpp"
+#include "BounceEngine.hpp"
 // This project's aim is to display a cool and simple way to implement a physics engine in a graphical
 // project using C++ and SFML.
+
 #define TESTS
 #define MAX_FPS 144
 
@@ -18,6 +18,7 @@ namespace Bounce
 			{
 			case sf::Event::Closed:
 				window.close();
+				break;
 			default:
 				break;
 			}

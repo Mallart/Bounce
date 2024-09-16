@@ -1,6 +1,6 @@
 #pragma once
-#include "include.hpp"
-#include "Component.hpp"
+#include "../include.hpp"
+#include "Components/Component.hpp"
 
 namespace Bounce
 {

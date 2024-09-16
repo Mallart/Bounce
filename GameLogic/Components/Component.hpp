@@ -1,4 +1,5 @@
-#include "include.hpp"
+#pragma once
+#include "../../include.hpp"
 
 namespace Bounce
 {

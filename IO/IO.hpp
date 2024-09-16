@@ -1,6 +1,9 @@
+#pragma once
 #include <iostream>
 #include <sys/stat.h>
 #include <stdio.h>
+
+#pragma warning(disable : 4996)
 
 namespace Bounce
 {
@@ -39,7 +42,7 @@ namespace Bounce
 
 		// Returns the resource flags for this resource path.
 		// If null (0), resource is either unavailable or nonexistent.
-		ResourceFlag LookUpResource(::std::string Uri)
+		static ResourceFlag LookUpResource(::std::string Uri)
 		{
 			ResourceFlag _rf = 0;
 			_iobuf* file = fopen(Uri.c_str(), "r");

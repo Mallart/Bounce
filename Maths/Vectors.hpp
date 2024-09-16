@@ -1,5 +1,5 @@
+#include "../include.hpp"
 #include "Entity.h"
-#include "include.hpp"
 #include <vector>
 
 namespace Bounce
