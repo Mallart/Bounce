@@ -31,6 +31,9 @@
     <Filter Include="Fichier sources\Debug">
       <UniqueIdentifier>{be7d9b8e-fa5a-4a91-a471-8ef15d7dbb95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameLogic\Components">
+      <UniqueIdentifier>{d83b1780-5b46-43c1-9e9a-1e862bc4bcf2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -80,8 +83,14 @@
     <ClInclude Include="Player.hpp">
       <Filter>Fichiers d%27en-tête\GameLogic</Filter>
     </ClInclude>
+    <ClInclude Include="Component.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug\Errors.hpp">
+      <Filter>Fichiers d%27en-tête\Debug</Filter>
+    </ClInclude>
     <ClInclude Include="Singleton.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

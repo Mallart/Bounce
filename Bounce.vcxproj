@@ -143,6 +143,8 @@
   <ItemGroup>
     <ClInclude Include="Being.hpp" />
     <ClInclude Include="Body.hpp" />
+    <ClInclude Include="Component.hpp" />
+    <ClInclude Include="Debug\Errors.hpp" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Errors.hpp" />
     <ClInclude Include="Game.hpp" />
