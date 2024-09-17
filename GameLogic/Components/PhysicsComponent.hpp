@@ -1,3 +1,4 @@
+#pragma once
 #include "Component.hpp"
 
 namespace Bounce
@@ -11,7 +12,7 @@ namespace Bounce
 			PhysicsComponent()
 			{
 
-			};
-		}
+			}
+		};
 	}
 }

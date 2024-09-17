@@ -9,11 +9,13 @@ namespace Bounce
 	BCLASS() Object
 	{
 		// This object's name.
-		V_BPROPERTY(public, protected, std::string, Name);
+		V_BACCESSOR(public, protected, std::string, Name);
 		// This object's ID.
-		BPROPERTY(public, protected, uint64_t, ID);
+		BPROPERTY(protected, uint64_t, ID);
+		BACCESSOR(public, protected, uint64_t, ID);
 		// Scripts and components attached to this object.
-		BPROPERTY(public, protected, ::std::vector<Components::Component*>, Components);
+		BPROPERTY(protected, ::std::vector<Components::Component*>, Components);
+		BACCESSOR(public, protected, ::std::vector<Components::Component*>, Components);
 	protected:
 		virtual void AddComponent(Components::Component & _component) { Components.push_back(&_component); };
 	public:

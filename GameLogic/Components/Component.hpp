@@ -1,5 +1,4 @@
 #pragma once
-#include "../../include.hpp"
 #include "../../Maths/Maths.hpp"
 
 namespace Bounce
@@ -31,9 +30,11 @@ namespace Bounce
 		{
 		public:
 			// The component's DisplayName.
-			BPROPERTY(public, protected, ::std::string, Name);
+			BPROPERTY(protected, ::std::string, Name);
+			BACCESSOR(public, protected, ::std::string, Name);
 			// The component's ID. Used to retrieve a component in an Object.
-			BPROPERTY(public, protected, uint64_t, ID);
+			BPROPERTY(protected, uint64_t, ID);
+			BACCESSOR(public, protected, uint64_t, ID);
 		protected:
 			// Called when the parent object is initiated, before the end of the parent constructor.
 			virtual void Init() = 0;

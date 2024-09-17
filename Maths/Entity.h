@@ -2,7 +2,6 @@
 #include "../include.hpp"
 #include <cmath>
 #include <string>
-#include "../Debug/Errors.hpp"
 
 namespace Bounce
 {

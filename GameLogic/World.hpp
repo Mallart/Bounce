@@ -1,5 +1,5 @@
+#pragma once
 #include "Object.hpp"
-#include "../IO/IO.hpp"
 
 namespace Bounce
 {
@@ -8,9 +8,11 @@ namespace Bounce
 	BCLASS() World : Object
 	{
 		// World's Uri (path to file)
-		BPROPERTY(public, protected, ::std::string, Uri);
+		BPROPERTY(protected, ::std::string, Uri);
+		BACCESSOR(public, protected, ::std::string, Uri);
 		// World content
-		BPROPERTY(public, protected, ::std::vector<Object&>, Objects);
+		BPROPERTY(protected, ::std::vector<Object*>, Objects);
+		BACCESSOR(public, protected, ::std::vector<Object*>, Objects);
 	public:
 		World(::std::string _Uri);
 		// Creates a new world. Same as calling World constructor with a URI pointing to an unavailable ressource.

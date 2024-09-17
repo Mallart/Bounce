@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
 #include <sys/stat.h>
-#include <stdio.h>
+#include <cstdio>
+#include <cstdlib>
 
 #pragma warning(disable : 4996)
 

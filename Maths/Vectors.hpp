@@ -1,4 +1,4 @@
-#include "../include.hpp"
+#pragma once
 #include "Entity.h"
 #include <vector>
 
@@ -14,10 +14,12 @@ namespace Bounce
 		protected:
 			::std::vector<T> values;
 		public:
-			/*template<typename ...Args>
-			Vector(Args ..._values) : values{ _values... } {};*/
 			Vector(void) : values{} {};
-			Vector(::std::initializer_list<T> _values) : values{ _values } {};
+			// Constructor from a list
+			Vector(::std::initializer_list<T> _values) : values( _values ) {};
+			template<typename... Args>
+			// Variadic constructor
+			Vector(Args... args) : values{ static_cast<T>(args)... } {}
 			Vector(const Vector<T>& v) : values{} { values = v.values; };
 
 

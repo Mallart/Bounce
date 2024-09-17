@@ -146,6 +146,7 @@
     <ClInclude Include="GameLogic\Being.hpp" />
     <ClInclude Include="GameLogic\Body.hpp" />
     <ClInclude Include="GameLogic\Components\Component.hpp" />
+    <ClInclude Include="GameLogic\Components\PhysicsComponent.hpp" />
     <ClInclude Include="GameLogic\Game.hpp" />
     <ClInclude Include="GameLogic\Object.hpp" />
     <ClInclude Include="GameLogic\Player.hpp" />

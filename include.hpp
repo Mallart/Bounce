@@ -6,5 +6,8 @@
 #include <SFML/Config.hpp>
 #include <string>
 #include <cstdint>
+#include <cstdbool>
 
+#include "./IO/IO.hpp"
+#include "./Debug/Errors.hpp"
 #include "Macros.hpp"
