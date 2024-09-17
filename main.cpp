@@ -39,6 +39,8 @@ namespace Bounce
 
 }
 
+using namespace Bounce;
+
 #ifdef TESTS
 static void test()
 {
@@ -53,12 +55,16 @@ static void test()
 	std::cout << v3.Distance(v3_2) << std::endl;
 	Bounce::Maths::Vector<long double> v12( 5, 7, 8, 9, 5, 8, 3, 5, 7, 8, 3, 4, 5, 7, 8 );
 	std::cout << v12.ToString() << std::endl;
+	std::cout << Maths::Vector2(1,2).ToString() << std::endl;
+	std::cout << Maths::Vector3(1,2,3).ToString() << std::endl;
+	std::cout << (::std::string)(Maths::Vector4)Maths::Vector3::Up << std::endl;
+	std::cout << (::std::string)Maths::Vector4(5, 4, 3, 2).GetVector2() << std::endl;
 #pragma endregion
 	std::cout << std::endl;
 #pragma region World
 
 #pragma endregion
-	//exit(Bounce::Errors::NO_ERROR);
+	exit(Bounce::Errors::NO_ERROR);
 }
 #endif
 

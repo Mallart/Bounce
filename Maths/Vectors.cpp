@@ -4,38 +4,33 @@ namespace Bounce
 {
 	namespace Maths
 	{
-		Vector2::Vector2(long long x, long long y) : Vector<long long>{ x, y }
-		{
-			values.push_back(x);
-			values.push_back(y);
-		}
 
-		long long Vector2::x()
+		int64_t Vector2::x()
 		{
 			return values[0];
 		}
 
-		long long Vector2::y()
+		int64_t Vector2::y()
 		{
 			return values[1];
 		}
 
-		Vector3::Vector3(long long x, long long y, long long z) : Vector2(x, y)
+		Vector3::Vector3(int64_t x, int64_t y, int64_t z) : Vector2(x, y)
 		{
 			values.push_back(z);
 		}
 
-		long long Vector3::z()
+		int64_t Vector3::z()
 		{
 			return values[2];
 		}
 
-		Vector4::Vector4(long long x, long long y, long long z, long long w) : Vector3(x, y, z)
+		Vector4::Vector4(int64_t x, int64_t y, int64_t z, int64_t w) : Vector3(x, y, z)
 		{
 			values.push_back(w);
 		}
 
-		long long Vector4::w()
+		int64_t Vector4::w()
 		{
 			return values[3];
 		}
@@ -77,12 +72,12 @@ namespace Bounce
 		}
 
 
+		const Vector2 Vector2::Up(0, 1);
+		const Vector2 Vector2::Down(0, -1);
+		const Vector2 Vector2::Left(-1, 0);
+		const Vector2 Vector2::Right(1, 0);
 		const Vector3 Vector3::One(0, 0, 0);
 		const Vector3 Vector3::Zero(0, 0, 0);
-		const Vector3 Vector3::Up(0, 1, 0);
-		const Vector3 Vector3::Down(0, -1, 0);
-		const Vector3 Vector3::Left(-1, 0, 0);
-		const Vector3 Vector3::Right(1, 0, 0);
 		const Vector3 Vector3::Back(0, 0, -1);
 		const Vector3 Vector3::Forward(0, 0, -1);
 	}

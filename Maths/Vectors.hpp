@@ -15,13 +15,13 @@ namespace Bounce
 		public:
 			Vector(void) : values{} {};
 			// Constructor from a list
-			Vector(::std::initializer_list<T> _values) : values( _values ) {};
+			Vector(::std::initializer_list<T> _values) : values(_values) {};
 			template<typename... Args>
 			// Variadic constructor
 			Vector(Args... args) : values{ static_cast<T>(args)... } {}
 			Vector(const Vector<T>& v) : values{} { values = v.values; };
 
-
+			BGETTER()
 			inline size_t Size() const
 			{
 				return values.size();
@@ -49,11 +49,22 @@ namespace Bounce
 			}
 
 			// Returns a vector of the same length filled with 0's.
+			BGETTER()
 			Vector<T> Zero()
 			{
 				Vector<T> _z;
 				for (size_t i = 0; i < Size(); ++i)
 					_z.Set(i, 0);
+				return _z;
+			}
+
+			// Returns a vector of the same length filled with 1's.
+			BGETTER()
+			Vector<T> One()
+			{
+				Vector<T> _z;
+				for (size_t i = 0; i < Size(); ++i)
+					_z.Set(i, 1);
 				return _z;
 			}
 
@@ -85,7 +96,7 @@ namespace Bounce
 				return sqrt(_distance);
 			}
 
-			Vector<T> operator+ (const Vector<T>& v1) 
+			Vector<T> operator+ (const Vector<T>& v1)
 			{
 				Vector<T> const bigger = v1.Size() > this->Size() ? v1 : *this;
 				Vector<T> v(bigger);
@@ -132,7 +143,7 @@ namespace Bounce
 				return *this;
 			}
 
-			::std::string ToString() override
+			operator ::std::string() const 
 			{
 				if (!Size())
 					return ::std::string("Vector0()");
@@ -140,39 +151,70 @@ namespace Bounce
 				for (size_t i = 1; i < Size(); ++i)
 					ts += "; " + ::std::to_string(Get(i));
 				return ts + ")";
+			};
+
+			inline virtual ::std::string ToString() override
+			{
+				return (::std::string)(*this);
 			}
+
+			protected:
+				::std::string CustomSizeVectorToString(size_t _Size)
+				{
+					size_t _smaller = min(Size(), _Size);
+					if (!_Size)
+						return ::std::string("Vector0()");
+					::std::string ts = "Vector" + ::std::to_string(_Size) + "(" + ::std::to_string(Get(0));
+					size_t i = 1;
+					for (; i < _smaller; ++i)
+						ts += "; " + ::std::to_string(Get(i));
+					return ts + ")";
+				}
+
 		};
 
 		// A two-dimensional int vector.
-		class Vector2 : public Vector<long long>
+		class Vector2 : public Vector<int64_t>
 		{
 		public:
-			Vector2(long long x, long long y);
-			long long x();
-			long long y();
+			Vector2(int64_t x, int64_t y) : Vector<int64_t>{ x, y } {};
+			BGETTER()
+				int64_t x();
+			BGETTER()
+				int64_t y();
+			static const Vector2 Up;
+			static const Vector2 Down;
+			static const Vector2 Right;
+			static const Vector2 Left;
+			::std::string ToString() { return CustomSizeVectorToString(2); }
 		};
 
 		// A three-dimensional int vector.
 		class Vector3 : public Vector2
 		{
 		public:
-			Vector3(long long x, long long y, long long z);
-			long long z();
+			Vector3(int64_t x, int64_t y, int64_t z);
+			Vector3(Vector2 v) : Vector3{ v.x(), v.y(), 0 } {};
+			BGETTER()
+				int64_t z();
 			static const Vector3 One;
 			static const Vector3 Zero;
-			static const Vector3 Up;
-			static const Vector3 Down;
-			static const Vector3 Left;
-			static const Vector3 Right;
 			static const Vector3 Forward;
 			static const Vector3 Back;
+			Vector2 GetVector2() { return Vector2(x(), y()); };
+			::std::string ToString() { return CustomSizeVectorToString(3); }
 		};
 		// A four-dimensional int vector.
 		class Vector4 : public Vector3
 		{
 		public:
-			Vector4(long long x, long long y, long long z, long long w);
-			long long w();
+			Vector4(int64_t x, int64_t y, int64_t z, int64_t w);
+			Vector4(Vector2 v) : Vector4(v.x(), v.y(), 0, 0) {};
+			Vector4(Vector3 v) : Vector4(v.x(), v.y(), v.z(), 0) {};
+			BGETTER();
+			int64_t w();
+			Vector3 GetVector3() { return Vector3(x(), y(), z()); };
+			::std::string ToString() { return CustomSizeVectorToString(4); }
 		};
 
 		// A two-dimensional double vector.
@@ -182,6 +224,8 @@ namespace Bounce
 			Vector2d(long double x, long double y);
 			long double x();
 			long double y();
+			::std::string ToString() { return CustomSizeVectorToString(2); }
+
 		};
 
 		// A three-dimensional int vector.
@@ -190,6 +234,7 @@ namespace Bounce
 		public:
 			Vector3d(long double x, long double y, long double z);
 			long double z();
+			::std::string ToString() { return CustomSizeVectorToString(3); }
 		};
 		// A four-dimensional int vector.
 		class Vector4d : public Vector3d
@@ -197,6 +242,7 @@ namespace Bounce
 		public:
 			Vector4d(long double x, long double y, long double z, long double w);
 			long double w();
+			::std::string ToString() { return CustomSizeVectorToString(4); }
 		};
 	}
 }

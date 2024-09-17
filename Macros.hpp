@@ -19,6 +19,8 @@
 // Engine will throw an error in a future version if you put this identifier without any constructor.
 #define BCLASS class
 #define BCLASS(name) class name; typedef name* Ref##name; class name
+// For classes that were already forward-declared.
+#define BCLASS_F(name) typedef name* Ref##name; class name
 // For template classes.
 #define BTCLASS(name, ...) template<__VA_ARGS__> class name
 
@@ -39,3 +41,13 @@
 // Defines a property and virtual accessors by its: Getting access, Setting access, type, and name.
 // Serializable by the engine.
 #define V_BACCESSOR(get_access, set_access, type, property) get_access : type property; CONCAT(CONCAT(get_access, : virtual type Get##property() { return this->##property; }) , CONCAT(set_access , : virtual void Set##property(type value) { this->##property = value; }))
+
+// Flags a method as a Getter (return result will be interpreted as a property)
+// A getter method may not have any parameter.
+#define BGETTER()
+// Flags a method as a Setter (useless at the moment)
+#define BSETTER()
+
+
+#define min(a, b) (a > b ? b : a);
+#define max(a, b) (a < b ? b : a);
