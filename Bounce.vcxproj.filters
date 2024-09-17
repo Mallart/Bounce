@@ -101,6 +101,9 @@
     <ClInclude Include="GameLogic\Components\PhysicsComponent.hpp">
       <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
     </ClInclude>
+    <ClInclude Include="GameLogic\Components\TransformComponent.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
