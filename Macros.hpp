@@ -17,11 +17,15 @@
 
 // Serializable class by the engine.
 // Engine will throw an error in a future version if you put this identifier without any constructor.
-#define BCLASS() class
+#define BCLASS class
+#define BCLASS(name) class name; typedef name* Ref##name; class name
+// For template classes.
+#define BTCLASS(name, ...) template<__VA_ARGS__> class name
 
 // Serializable interface by the engine.
 // An interface is a class that cannot be instantiated. The engine will throw an error if you put a regular class there.
 #define BINTERFACE() class
+#define BINTERFACE(name) class name; typedef name* Ref##name; class name
 
 // Serializable enum.
 #define BENUM() enum

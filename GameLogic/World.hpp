@@ -5,7 +5,7 @@ namespace Bounce
 {
 
 	// Class to describe the behavior of a scene / World.
-	BCLASS() World : Object
+	BCLASS(World): Object
 	{
 		// World's Uri (path to file)
 		BPROPERTY(protected, ::std::string, Uri);

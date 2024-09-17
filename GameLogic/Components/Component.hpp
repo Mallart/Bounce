@@ -26,7 +26,7 @@ namespace Bounce
 		};
 
 		// A component that can be attached to any object.
-		BINTERFACE() Component
+		BINTERFACE(Component)
 		{
 		public:
 			// The component's DisplayName.

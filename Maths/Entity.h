@@ -8,7 +8,7 @@ namespace Bounce
 	namespace Maths
 	{
 		// A mathematical entity.
-		BCLASS() Entity
+		BCLASS(Entity)
 		{
 		public:
 			virtual ::std::string ToString() = 0;

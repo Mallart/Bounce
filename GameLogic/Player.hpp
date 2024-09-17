@@ -4,7 +4,7 @@
 namespace Bounce
 {
 	// A controllable Being.
-	BCLASS() Player : public Being
+	BCLASS(Player) : public Being
 	{
 
 	};

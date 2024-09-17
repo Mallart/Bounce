@@ -8,7 +8,7 @@ namespace Bounce
 		Can be static, dynamic, ruled by physics or not, triggered by events or not...
 		Basically an object with a Collider component.
 	*/
-	BCLASS() Body : public Object
+	BCLASS(Body) : public Object
 	{
 
 	};

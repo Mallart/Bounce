@@ -6,10 +6,9 @@ namespace Bounce
 {
 	namespace Maths
 	{
-		template<typename T>
 		// A vector of any type without fixed length.
 		// Can theoretically have an infinite number of values.
-		BCLASS() Vector : Entity
+		BTCLASS(Vector, typename T) : Entity
 		{
 		protected:
 			::std::vector<T> values;
