@@ -43,22 +43,22 @@ namespace Bounce
 static void test()
 {
 #pragma region Vectors
-	//Bounce::Maths::Vector<float> _vec;
-	//_vec = { 4, 5, 6 };
-	//::std::cout << _vec.ToString() << ::std::endl;
-	//::std::cout << _vec.Zero().ToString() << ::std::endl;
-	//Bounce::Maths::Vector<long double> v3{ 5.f, 2.f, 6.f };
-	//Bounce::Maths::Vector<long double> v3_2{ 3.f, 2.f, 4.f };
-	//std::cout << v3.Magnitude() << std::endl;
-	//std::cout << v3.Distance(v3_2) << std::endl;
-	//Bounce::Maths::Vector<long double> v12{ 5, 7, 8, 9, 5, 8, 3, 5, 7, 8, 3, 4 };
-	//std::cout << v12.ToString() << std::endl;
+	Bounce::Maths::Vector<float> _vec;
+	_vec = { 4, 5, 6 };
+	::std::cout << _vec.ToString() << ::std::endl;
+	::std::cout << _vec.Zero().ToString() << ::std::endl;
+	Bounce::Maths::Vector<long double> v3{ 5.f, 2.f, 6.f };
+	Bounce::Maths::Vector<long double> v3_2{ 3.f, 2.f, 4.f };
+	std::cout << v3.Magnitude() << std::endl;
+	std::cout << v3.Distance(v3_2) << std::endl;
+	Bounce::Maths::Vector<long double> v12( 5, 7, 8, 9, 5, 8, 3, 5, 7, 8, 3, 4, 5, 7, 8 );
+	std::cout << v12.ToString() << std::endl;
 #pragma endregion
 	std::cout << std::endl;
 #pragma region World
 
 #pragma endregion
-	exit(Bounce::Errors::NO_ERROR);
+	//exit(Bounce::Errors::NO_ERROR);
 }
 #endif
 
