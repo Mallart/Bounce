@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameLogic\Components\TransformComponent.cpp" />
     <ClCompile Include="GameLogic\World.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maths\Vectors.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Macros.hpp" />
     <ClInclude Include="Maths\Entity.h" />
     <ClInclude Include="Maths\Maths.hpp" />
+    <ClInclude Include="Maths\Quaternion.hpp" />
     <ClInclude Include="Maths\Vectors.hpp" />
   </ItemGroup>
   <ItemGroup>

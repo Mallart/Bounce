@@ -19,7 +19,7 @@ namespace Bounce
 			BAPROPERTY(public, protected, float, Velocity);
 
 
-			PhysicsComponent(float _Velocity = .0f, float _GravityModifier = .0f, float _Temperature = .0f, float _Elasticity = .0f)
+			PhysicsComponent(Vector3d _Pos, float _Rot, float _Velocity = .0f, float _GravityModifier = .0f, float _Temperature = .0f, float _Elasticity = .0f) : TransformComponent{ _Pos, _Rot }
 			{
 				GravityModifier = _GravityModifier,
 					Temperature = _Temperature,

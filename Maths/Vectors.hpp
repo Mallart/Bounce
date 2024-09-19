@@ -68,6 +68,13 @@ namespace Bounce
 				return _z;
 			}
 
+			// Applies an operation on all members of this vector.
+			void Apply(::std::function<T(T)> operation)
+			{
+				for (size_t i = 0; i < Size(); ++i)
+					values[i] = operation(values[i]);
+			}
+
 			// Returns the vector's magnitude.
 			T Magnitude() const
 			{
@@ -94,6 +101,14 @@ namespace Bounce
 					_distance += _temp * _temp;
 				}
 				return sqrt(_distance);
+			}
+
+			// Sets all the vector's members to their opposite
+			Vector<T> Invert() const
+			{
+				Vector<T> v(*this);
+				v.Apply([](T member) { return -member; });
+				return v;
 			}
 
 			Vector<T> operator+ (const Vector<T>& v1)
@@ -143,7 +158,29 @@ namespace Bounce
 				return *this;
 			}
 
-			operator ::std::string() const 
+			Vector<T>& operator+= (const Vector<T>& v1)
+			{
+				*this = *this + v1;
+				return *this;
+			}
+
+			Vector<T>& operator-= (const Vector<T>& v1)
+			{
+				*this = *this - v1;
+				return *this;
+			}
+			Vector<T>& operator*= (const Vector<T>& v1)
+			{
+				*this = *this * v1;
+				return *this;
+			}
+			Vector<T>& operator/= (const Vector<T>& v1)
+			{
+				*this = *this / v1;
+				return *this;
+			}
+
+			operator ::std::string() const
 			{
 				if (!Size())
 					return ::std::string("Vector0()");
@@ -222,10 +259,12 @@ namespace Bounce
 		{
 		public:
 			Vector2d(long double x, long double y);
+			Vector2d(Vector2 v) : Vector2d{ static_cast<long double>(v.x()), static_cast<long double>(v.y()) } {};
+			Vector2d(Vector<long double> v) : Vector2d{ v.Get(0), v.Get(1)} {};
 			long double x();
 			long double y();
+			operator Vector<long double>() { return Vector<long double>(x(), y()); };
 			::std::string ToString() { return CustomSizeVectorToString(2); }
-
 		};
 
 		// A three-dimensional int vector.
@@ -233,7 +272,10 @@ namespace Bounce
 		{
 		public:
 			Vector3d(long double x, long double y, long double z);
+			Vector3d(Vector3 v) : Vector3d{ static_cast<long double>(v.x()), static_cast<long double>(v.y()), static_cast<long double>(v.z()) } {};
+			Vector3d(Vector<long double> v) : Vector3d{ v.Get(0), v.Get(1), v.Get(2)} {};
 			long double z();
+			operator Vector<long double>() { return Vector<long double>(x(), y(), z()); };
 			::std::string ToString() { return CustomSizeVectorToString(3); }
 		};
 		// A four-dimensional int vector.
@@ -241,7 +283,10 @@ namespace Bounce
 		{
 		public:
 			Vector4d(long double x, long double y, long double z, long double w);
+			Vector4d(Vector4 v) : Vector4d{ static_cast<long double>(v.x()), static_cast<long double>(v.y()), static_cast<long double>(v.z()), static_cast<long double>(v.w()), } {};
+			Vector4d(Vector<long double> v) : Vector4d{ v.Get(0), v.Get(1), v.Get(2), v.Get(3)} {};
 			long double w();
+			operator Vector<long double>() { return Vector<long double>(x(), y(), z(), w()); };
 			::std::string ToString() { return CustomSizeVectorToString(4); }
 		};
 	}

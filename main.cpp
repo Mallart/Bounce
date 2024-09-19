@@ -59,9 +59,18 @@ static void test()
 	std::cout << Maths::Vector3(1,2,3).ToString() << std::endl;
 	std::cout << (::std::string)(Maths::Vector4)Maths::Vector3::Up << std::endl;
 	std::cout << (::std::string)Maths::Vector4(5, 4, 3, 2).GetVector2() << std::endl;
+
+
+	Maths::Vector<int> _vec3;
+	::std::cout << _vec3.Set(0, 1).Set(1,2).Set(2,8).ToString() << ::std::endl;
+
+
+
 #pragma endregion
 	std::cout << std::endl;
-#pragma region World
+#pragma region Quaternions
+
+	::std::cout << Maths::Vector3d(5, 7, 8).Invert().ToString() << ::std::endl;
 
 #pragma endregion
 	exit(Bounce::Errors::NO_ERROR);
@@ -75,7 +84,7 @@ int main()
 #ifdef TESTS
 	test();
 #endif
-	window.create(sf::VideoMode(1920, 1080), "Bounce Physics", sf::Style::Fullscreen);
+	window.create(sf::VideoMode::getDesktopMode(), "Bounce Physics", sf::Style::Fullscreen);
 	window.setFramerateLimit(MAX_FPS);
 	Bounce::runWindow(window);
 	return 0;

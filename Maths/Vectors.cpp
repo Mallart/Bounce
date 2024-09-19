@@ -35,11 +35,7 @@ namespace Bounce
 			return values[3];
 		}
 
-		Vector2d::Vector2d(long double x, long double y) : Vector<long double>{ x, y }
-		{
-			values.push_back(x);
-			values.push_back(y);
-		}
+		Vector2d::Vector2d(long double x, long double y) : Vector<long double>{ x, y } {}
 
 		long double Vector2d::x()
 		{

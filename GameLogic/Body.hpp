@@ -1,6 +1,6 @@
 #pragma once
 #include "Object.hpp"
-
+#include "Components/PhysicsComponent.hpp"
 namespace Bounce
 {
 	/*
@@ -10,6 +10,6 @@ namespace Bounce
 	*/
 	BCLASS(Body) : public Object
 	{
-
+		BPROPERTY(protected, Components::PhysicsComponent, PhysicsComponent);
 	};
 }

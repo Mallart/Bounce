@@ -48,6 +48,9 @@
     <ClCompile Include="Maths\Vectors.cpp">
       <Filter>Fichier sources\Structures</Filter>
     </ClCompile>
+    <ClCompile Include="GameLogic\Components\TransformComponent.cpp">
+      <Filter>Fichier sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug\Errors.hpp">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="GameLogic\Components\TransformComponent.hpp">
       <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Quaternion.hpp">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
