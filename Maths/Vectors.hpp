@@ -107,7 +107,7 @@ namespace Bounce
 			Vector<T> Invert() const
 			{
 				Vector<T> v(*this);
-				v.Apply([](T member) { return -member; });
+				v.Apply([](T member) -> T { return -member; });
 				return v;
 			}
 
@@ -267,7 +267,7 @@ namespace Bounce
 			::std::string ToString() { return CustomSizeVectorToString(2); }
 		};
 
-		// A three-dimensional int vector.
+		// A three-dimensional double vector.
 		class Vector3d : public Vector2d
 		{
 		public:
@@ -278,7 +278,7 @@ namespace Bounce
 			operator Vector<long double>() { return Vector<long double>(x(), y(), z()); };
 			::std::string ToString() { return CustomSizeVectorToString(3); }
 		};
-		// A four-dimensional int vector.
+		// A four-dimensional double vector.
 		class Vector4d : public Vector3d
 		{
 		public:
