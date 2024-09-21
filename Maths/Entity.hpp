@@ -11,7 +11,8 @@ namespace Bounce
 		BCLASS(Entity)
 		{
 		public:
-			virtual ::std::string ToString() = 0;
+			virtual ::std::string ToString() const { return ::std::string("Mathematical Entity"); };
+			virtual operator ::std::string() const { return ToString(); };
 		};
 	}
 }

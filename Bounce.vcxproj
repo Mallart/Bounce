@@ -157,9 +157,10 @@
     <ClInclude Include="include.hpp" />
     <ClInclude Include="IO\IO.hpp" />
     <ClInclude Include="Macros.hpp" />
-    <ClInclude Include="Maths\Entity.h" />
+    <ClInclude Include="Maths\Entity.hpp" />
     <ClInclude Include="Maths\Maths.hpp" />
     <ClInclude Include="Maths\Quaternion.hpp" />
+    <ClInclude Include="Maths\Radians.hpp" />
     <ClInclude Include="Maths\Vectors.hpp" />
   </ItemGroup>
   <ItemGroup>

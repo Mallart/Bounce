@@ -83,7 +83,7 @@
     <ClInclude Include="include.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Maths\Entity.h">
+    <ClInclude Include="Maths\Entity.hpp">
       <Filter>Fichiers d%27en-tête\Maths</Filter>
     </ClInclude>
     <ClInclude Include="Maths\Maths.hpp">
@@ -108,6 +108,9 @@
       <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
     </ClInclude>
     <ClInclude Include="Maths\Quaternion.hpp">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Radians.hpp">
       <Filter>Fichiers d%27en-tête\Maths</Filter>
     </ClInclude>
   </ItemGroup>

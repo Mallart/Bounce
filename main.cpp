@@ -63,6 +63,8 @@ static void test()
 
 	Maths::Vector<int> _vec3;
 	::std::cout << _vec3.Set(0, 1).Set(1,2).Set(2,8).ToString() << ::std::endl;
+	_vec3.Set(3) = 5;
+	::std::cout << _vec3.ToString() << ::std::endl;
 
 
 
@@ -71,6 +73,9 @@ static void test()
 #pragma region Quaternions
 
 	::std::cout << Maths::Vector3d(5, 7, 8).Invert().ToString() << ::std::endl;
+	::std::cout << (::std::string)Maths::Quaternion(Maths::Vector3d(0, 0, 0)) << ::std::endl;
+	::std::cout << Maths::Quaternion(Maths::Vector3d(54, 178, 3)).GetNorm() << ::std::endl;
+	::std::cout << (::std::string)Maths::Quaternion(Maths::Vector3d(0, 90, 90)).Rotate({ 0, 1, 1 }) << ::std::endl;
 
 #pragma endregion
 	exit(Bounce::Errors::NO_ERROR);

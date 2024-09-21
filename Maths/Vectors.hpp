@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity.h"
+#include "Entity.hpp"
 #include <vector>
 
 namespace Bounce
@@ -46,6 +46,20 @@ namespace Bounce
 				else
 					values[index] = value;
 				return *this;
+			}
+
+			// Enables the "v.Set(0) = x" syntax.
+			inline T& Set(size_t index)
+			{
+				if (index > Size())
+					throw Errors::OUT_OF_BOUNDS;
+				else if (index == Size())
+				{
+					values.push_back(0);
+					return values[index];
+				}
+				else
+					return values[index];
 			}
 
 			// Returns a vector of the same length filled with 0's.
@@ -180,7 +194,8 @@ namespace Bounce
 				return *this;
 			}
 
-			operator ::std::string() const
+
+			inline virtual ::std::string ToString() const override
 			{
 				if (!Size())
 					return ::std::string("Vector0()");
@@ -188,12 +203,12 @@ namespace Bounce
 				for (size_t i = 1; i < Size(); ++i)
 					ts += "; " + ::std::to_string(Get(i));
 				return ts + ")";
-			};
-
-			inline virtual ::std::string ToString() override
-			{
-				return (::std::string)(*this);
 			}
+
+			operator ::std::string() const
+			{
+				return ToString();
+			};
 
 			protected:
 				::std::string CustomSizeVectorToString(size_t _Size)
@@ -216,9 +231,9 @@ namespace Bounce
 		public:
 			Vector2(int64_t x, int64_t y) : Vector<int64_t>{ x, y } {};
 			BGETTER()
-				int64_t x();
+			int64_t x() const;
 			BGETTER()
-				int64_t y();
+			int64_t y() const;
 			static const Vector2 Up;
 			static const Vector2 Down;
 			static const Vector2 Right;
@@ -233,7 +248,7 @@ namespace Bounce
 			Vector3(int64_t x, int64_t y, int64_t z);
 			Vector3(Vector2 v) : Vector3{ v.x(), v.y(), 0 } {};
 			BGETTER()
-				int64_t z();
+			int64_t z() const;
 			static const Vector3 One;
 			static const Vector3 Zero;
 			static const Vector3 Forward;
@@ -249,7 +264,7 @@ namespace Bounce
 			Vector4(Vector2 v) : Vector4(v.x(), v.y(), 0, 0) {};
 			Vector4(Vector3 v) : Vector4(v.x(), v.y(), v.z(), 0) {};
 			BGETTER();
-			int64_t w();
+			int64_t w() const;
 			Vector3 GetVector3() { return Vector3(x(), y(), z()); };
 			::std::string ToString() { return CustomSizeVectorToString(4); }
 		};
@@ -261,8 +276,8 @@ namespace Bounce
 			Vector2d(long double x, long double y);
 			Vector2d(Vector2 v) : Vector2d{ static_cast<long double>(v.x()), static_cast<long double>(v.y()) } {};
 			Vector2d(Vector<long double> v) : Vector2d{ v.Get(0), v.Get(1)} {};
-			long double x();
-			long double y();
+			long double x() const;
+			long double y() const;
 			operator Vector<long double>() { return Vector<long double>(x(), y()); };
 			::std::string ToString() { return CustomSizeVectorToString(2); }
 		};
@@ -274,7 +289,7 @@ namespace Bounce
 			Vector3d(long double x, long double y, long double z);
 			Vector3d(Vector3 v) : Vector3d{ static_cast<long double>(v.x()), static_cast<long double>(v.y()), static_cast<long double>(v.z()) } {};
 			Vector3d(Vector<long double> v) : Vector3d{ v.Get(0), v.Get(1), v.Get(2)} {};
-			long double z();
+			long double z() const;
 			operator Vector<long double>() { return Vector<long double>(x(), y(), z()); };
 			::std::string ToString() { return CustomSizeVectorToString(3); }
 		};
@@ -285,7 +300,7 @@ namespace Bounce
 			Vector4d(long double x, long double y, long double z, long double w);
 			Vector4d(Vector4 v) : Vector4d{ static_cast<long double>(v.x()), static_cast<long double>(v.y()), static_cast<long double>(v.z()), static_cast<long double>(v.w()), } {};
 			Vector4d(Vector<long double> v) : Vector4d{ v.Get(0), v.Get(1), v.Get(2), v.Get(3)} {};
-			long double w();
+			long double w() const;
 			operator Vector<long double>() { return Vector<long double>(x(), y(), z(), w()); };
 			::std::string ToString() { return CustomSizeVectorToString(4); }
 		};

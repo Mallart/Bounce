@@ -5,12 +5,12 @@ namespace Bounce
 	namespace Maths
 	{
 
-		int64_t Vector2::x()
+		int64_t Vector2::x() const
 		{
 			return values[0];
 		}
 
-		int64_t Vector2::y()
+		int64_t Vector2::y() const
 		{
 			return values[1];
 		}
@@ -20,7 +20,7 @@ namespace Bounce
 			values.push_back(z);
 		}
 
-		int64_t Vector3::z()
+		int64_t Vector3::z() const
 		{
 			return values[2];
 		}
@@ -30,19 +30,19 @@ namespace Bounce
 			values.push_back(w);
 		}
 
-		int64_t Vector4::w()
+		int64_t Vector4::w() const
 		{
 			return values[3];
 		}
 
 		Vector2d::Vector2d(long double x, long double y) : Vector<long double>{ x, y } {}
 
-		long double Vector2d::x()
+		long double Vector2d::x() const
 		{
 			return values[0];
 		}
 
-		long double Vector2d::y()
+		long double Vector2d::y() const
 		{
 			return values[1];
 		}
@@ -52,7 +52,7 @@ namespace Bounce
 			values.push_back(z);
 		}
 
-		long double Vector3d::z()
+		long double Vector3d::z() const
 		{
 			return values[2];
 		}
@@ -62,7 +62,7 @@ namespace Bounce
 			values.push_back(w);
 		}
 
-		long double Vector4d::w()
+		long double Vector4d::w() const
 		{
 			return values[3];
 		}
