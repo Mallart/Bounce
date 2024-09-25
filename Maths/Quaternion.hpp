@@ -53,7 +53,7 @@ namespace Bounce::Maths
 		}
 
 		BGETTER()
-		// Returns the Quaternion's norm
+		// Returns the Quaternion's norm. Should be equal to one, or the quaternion isn't valid.
 		const long double GetNorm()
 		{
 			return ::std::sqrt(Axis.x() * Axis.x() + Axis.y() * Axis.y() + Axis.z() * Axis.z() + w * w);
@@ -81,7 +81,7 @@ namespace Bounce::Maths
 		};
 
 		// Rotates a Vector3d using a Quaternion
-		inline static Vector3d Rotate(Vector3d v, Quaternion& const q)
+		inline static Vector3d Rotate(Vector3d v, Quaternion& q)
 		{
 			return q.Rotate(v);
 		}

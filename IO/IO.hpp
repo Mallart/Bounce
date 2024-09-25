@@ -32,13 +32,13 @@ namespace Bounce
 		enum Resource
 		{
 			// Cannot access resource.
-			AVAILABLE		= 0b001,
-			UNAVAILABLE		= 0b000,
-			FILE			= 0b010,
-			DIRECTORY		= 0b000,
+			R_AVAILABLE		= 0b001,
+			R_UNAVAILABLE		= 0b000,
+			R_FILE			= 0b010,
+			R_DIRECTORY		= 0b000,
 			// Not supported at the moment
-			DISTANT			= 0b100,
-			LOCAL			= 0b000,
+			R_DISTANT			= 0b100,
+			R_LOCAL			= 0b000,
 		};
 
 		// Returns the resource flags for this resource path.
@@ -46,16 +46,16 @@ namespace Bounce
 		static ResourceFlag LookUpResource(::std::string Uri)
 		{
 			ResourceFlag _rf = 0;
-			_iobuf* file = fopen(Uri.c_str(), "r");
+			FILE* file = fopen(Uri.c_str(), "r");
 			struct stat info;
 			// Unavailable resource.
 			if (!stat(Uri.c_str(), &info))
 				return _rf;
-			_rf = AVAILABLE;
+			_rf = R_AVAILABLE;
 			// Uri is a directory
 			if (info.st_mode & S_IFDIR)
-				return _rf | DIRECTORY;
-			return _rf | FILE;
+				return _rf | R_DIRECTORY;
+			return _rf | R_FILE;
 		}
 	}
 }

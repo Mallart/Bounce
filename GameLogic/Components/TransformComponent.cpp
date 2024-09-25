@@ -12,18 +12,61 @@ namespace Bounce::Components
 		Position += _Position;
 	}
 
-	void TransformComponent::RotateTo(float _Rotation)
+	void TransformComponent::RotateTo(Vector3d _Rotation)
 	{
-		Rotation = fmod(_Rotation, 360.f) ;
+		_Rotation.Apply([](long double x) { return fmod(x, 360.0); });
+		Rotation = _Rotation;
 	}
 
-	void TransformComponent::Rotate(float _Rotation)
+	void TransformComponent::Rotate(Vector3d _Rotation)
 	{
-		Rotation += fmod(_Rotation, 360.f);
+		_Rotation.Apply([](long double x) { return fmod(x, 360.0); });
+		Rotation += _Rotation;
 	}
 
-	Vector2d TransformComponent::Up()
+	Vector3d TransformComponent::Up()
 	{
-		return (Vector2d)Vector2::Up * cos(Rotation);
+		return GetQuaternion().Rotate((Vector3)Vector3::Up);
 	}
+
+	Vector3d TransformComponent::Forward()
+	{
+		return GetQuaternion().Rotate(Vector3::Forward);
+	}
+
+	Vector3d TransformComponent::Right()
+	{
+		return GetQuaternion().Rotate((Vector3)Vector3::Right);
+	}
+
+	Vector3d TransformComponent::GetRotation()
+	{
+		return Rotation;
+	}
+	Quaternion TransformComponent::GetQuaternion()
+	{
+		return Quaternion(Rotation);
+	}
+	Vector3d TransformComponent::GetPosition()
+	{
+		return Position;
+	}
+	void TransformComponent::Rotate(Quaternion _quat)
+	{
+		Rotation = _quat.Rotate(Rotation);
+	}
+
+	void TransformComponent::Init()
+	{
+	}
+	void TransformComponent::Update()
+	{
+	}
+	void TransformComponent::Start()
+	{
+	}
+	void TransformComponent::End()
+	{
+	}
+
 }

@@ -141,6 +141,11 @@ namespace Bounce
 					v.Set(i, this->Get(i) * v1.Get(i));
 				return v;
 			}
+			Vector<T> operator* (long double k)
+			{
+				Apply([k](long double x) { return x * k; });
+				return *this;
+			}
 			Vector<T> operator/ (const Vector<T>& v1)
 			{
 				Vector<T> const bigger = v1.Size() > this->Size() ? v1 : *this;
@@ -213,7 +218,7 @@ namespace Bounce
 			protected:
 				::std::string CustomSizeVectorToString(size_t _Size)
 				{
-					size_t _smaller = min(Size(), _Size);
+					size_t _smaller = b_min(Size(), _Size);
 					if (!_Size)
 						return ::std::string("Vector0()");
 					::std::string ts = "Vector" + ::std::to_string(_Size) + "(" + ::std::to_string(Get(0));
@@ -288,7 +293,7 @@ namespace Bounce
 		public:
 			Vector3d(long double x, long double y, long double z);
 			Vector3d(Vector3 v) : Vector3d{ static_cast<long double>(v.x()), static_cast<long double>(v.y()), static_cast<long double>(v.z()) } {};
-			Vector3d(Vector<long double> v) : Vector3d{ v.Get(0), v.Get(1), v.Get(2)} {};
+			Vector3d(Vector v) : Vector3d{ static_cast<long double>(v.Get(0)), static_cast<long double>(v.Get(1)), static_cast<long double>(v.Get(2)) } {};
 			long double z() const;
 			operator Vector<long double>() { return Vector<long double>(x(), y(), z()); };
 			::std::string ToString() { return CustomSizeVectorToString(3); }

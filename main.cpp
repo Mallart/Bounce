@@ -77,6 +77,16 @@ static void test()
 	::std::cout << Maths::Quaternion(Maths::Vector3d(54, 178, 3)).GetNorm() << ::std::endl;
 	::std::cout << (::std::string)Maths::Quaternion(Maths::Vector3d(0, 90, 90)).Rotate({ 0, 1, 1 }) << ::std::endl;
 
+	::std::cout << Maths::Vector<int>(5, 6, 78, 8, 8, 7 ,9 ,6 ,63).ToString() << ::std::endl;
+
+#pragma endregion
+	std::cout << std::endl;
+#pragma region Components
+#pragma region Transform
+	Components::TransformComponent _tc(Maths::Vector3::Zero, Maths::Vector3::Zero);
+	//_tc.Move((Maths::Vector3d)(Maths::Vector3::Up) * 3.0L);
+	::std::cout << ::std::string("Transform position: ") << _tc.GetPosition().ToString() << ::std::endl;
+#pragma endregion
 #pragma endregion
 	exit(Bounce::Errors::NO_ERROR);
 }
