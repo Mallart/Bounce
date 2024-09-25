@@ -5,14 +5,12 @@ namespace Bounce
 {
 
 	// Class to describe the behavior of a scene / World.
-	BCLASS(World): Object
+	BCLASS(World): public Object
 	{
 		// World's Uri (path to file)
-		BPROPERTY(protected, ::std::string, Uri);
-		BACCESSOR(public, protected, ::std::string, Uri);
+		BAPROPERTY(public, protected, ::std::string, Uri);
 		// World content
-		BPROPERTY(protected, ::std::vector<Object*>, Objects);
-		BACCESSOR(public, protected, ::std::vector<Object*>, Objects);
+		BAPROPERTY(public, protected, ::std::vector<Object*>, Objects);
 	public:
 		World() { Uri = ""; };
 		World(::std::string _Uri);
@@ -25,5 +23,7 @@ namespace Bounce
 		// Destroys all the World content then the world itself in memory.
 		// Doesn't affect the World's save.
 		void Unload();
+		// Returns only the drawable objects in this Scene / World.
+		::std::vector<Object*> GetDrawable();
 	};
 }

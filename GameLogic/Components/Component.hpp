@@ -28,12 +28,11 @@ namespace Bounce
 		// A component that can be attached to any object.
 		BINTERFACE(Component)
 		{
-		public:
 			// The component's DisplayName.
 			BAPROPERTY(public, protected, ::std::string, Name);
 			// The component's ID. Used to retrieve a component in an Object.
 			BAPROPERTY(public, protected, uint64_t, ID);
-		protected:
+		public:
 			// Called when the parent object is initiated, before the end of the parent constructor.
 			virtual void Init() = 0;
 			// Called when the game actually starts

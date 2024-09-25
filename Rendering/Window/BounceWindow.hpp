@@ -63,6 +63,9 @@ namespace Bounce
 			w->HandleEvents();
 			w->pushGLStates();
 			w->clear(sf::Color::Black);
+			// Draw SFML objects.
+			for (Object* _object : w->RenderedWorld.Objects)
+				w->draw(*dynamic_cast<sf::Drawable*>(_object));
 			w->popGLStates();
 			// dessin dans la fenêtre
 			w->display();

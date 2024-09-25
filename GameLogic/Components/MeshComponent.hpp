@@ -1,14 +1,17 @@
 #include "Component.hpp"
 #include "../../Geometry/Geometry.hpp"
-#include "SFML/Graphics/Texture.hpp"
 
 namespace Bounce::Components
 {
 	BCLASS(MeshComponent) : public Component
 	{
 		BAPROPERTY(public, protected, Geometry::Geometry, Shape)
-		BAPROPERTY(public, protected, ::sf::Texture, Shape)
+		BAPROPERTY(public, protected, ::sf::Texture, Texture)
 	public:
 		MeshComponent();
+		virtual void Init() {};
+		virtual void Start() {};
+		virtual void End() {};
+		virtual void Update() {};
 	};
 }
