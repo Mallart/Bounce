@@ -8,6 +8,6 @@ FLAGS= -w -fcompare-debug-second
 	$(CC) $(FLAGS) -c $(HEADERS) $(SOURCES)
 
 .build:
-	$(CC) $(FLAGS) bounce.exe -o $(wildcard *.o) -lsfml-graphics -lsfml-window -lsfml-system
+	$(CC) $(FLAGS) bounce.exe -o $(wildcard *.o) -lsfml-graphics -lsfml-window -lsfml-system -lGL
 
 .make: .objects .build

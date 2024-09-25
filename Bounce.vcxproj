@@ -111,7 +111,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\matha\Documents\DLL\SFML-2.6.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -147,6 +147,7 @@
     <ClInclude Include="GameLogic\Being.hpp" />
     <ClInclude Include="GameLogic\Body.hpp" />
     <ClInclude Include="GameLogic\Components\Component.hpp" />
+    <ClInclude Include="GameLogic\Components\MeshComponent.hpp" />
     <ClInclude Include="GameLogic\Components\PhysicsComponent.hpp" />
     <ClInclude Include="GameLogic\Components\TransformComponent.hpp" />
     <ClInclude Include="GameLogic\Game.hpp" />
@@ -154,6 +155,9 @@
     <ClInclude Include="GameLogic\Player.hpp" />
     <ClInclude Include="GameLogic\Singleton.hpp" />
     <ClInclude Include="GameLogic\World.hpp" />
+    <ClInclude Include="Geometry\Geometry.hpp" />
+    <ClInclude Include="Geometry\Primitives\Cube.hpp" />
+    <ClInclude Include="Geometry\Primitives\Primitive.hpp" />
     <ClInclude Include="include.hpp" />
     <ClInclude Include="IO\IO.hpp" />
     <ClInclude Include="Macros.hpp" />
@@ -162,9 +166,11 @@
     <ClInclude Include="Maths\Quaternion.hpp" />
     <ClInclude Include="Maths\Radians.hpp" />
     <ClInclude Include="Maths\Vectors.hpp" />
+    <ClInclude Include="Rendering\Window\BounceWindow.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

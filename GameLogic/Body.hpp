@@ -11,5 +11,8 @@ namespace Bounce
 	BCLASS(Body) : public Object
 	{
 		BPROPERTY(protected, Components::PhysicsComponent, PhysicsComponent);
+	public:
+		// Bodies are drawable by default
+		virtual bool IsDrawable() override { return 1; }
 	};
 }

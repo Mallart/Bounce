@@ -30,11 +30,9 @@ namespace Bounce
 		{
 		public:
 			// The component's DisplayName.
-			BPROPERTY(protected, ::std::string, Name);
-			BACCESSOR(public, protected, ::std::string, Name);
+			BAPROPERTY(public, protected, ::std::string, Name);
 			// The component's ID. Used to retrieve a component in an Object.
-			BPROPERTY(protected, uint64_t, ID);
-			BACCESSOR(public, protected, uint64_t, ID);
+			BAPROPERTY(public, protected, uint64_t, ID);
 		protected:
 			// Called when the parent object is initiated, before the end of the parent constructor.
 			virtual void Init() = 0;

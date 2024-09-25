@@ -37,6 +37,18 @@
     <Filter Include="Fichiers d%27en-tête\IO">
       <UniqueIdentifier>{c846a776-9fc5-401a-8f82-08dadbe05384}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Geometry">
+      <UniqueIdentifier>{6c1854e0-3e6e-4b87-a117-976e0460e491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Geometry\Primitives">
+      <UniqueIdentifier>{ad5b5006-30b5-419d-b08f-d11f2d1de64b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Rendering">
+      <UniqueIdentifier>{2221d640-1618-4660-b696-788fd01fa124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Rendering\Window">
+      <UniqueIdentifier>{7a934d4b-b619-44e2-ba38-f72548a8f738}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -113,8 +125,24 @@
     <ClInclude Include="Maths\Radians.hpp">
       <Filter>Fichiers d%27en-tête\Maths</Filter>
     </ClInclude>
+    <ClInclude Include="GameLogic\Components\MeshComponent.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Primitives\Primitive.hpp">
+      <Filter>Fichiers d%27en-tête\Geometry\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Primitives\Cube.hpp">
+      <Filter>Fichiers d%27en-tête\Geometry\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Geometry.hpp">
+      <Filter>Fichiers d%27en-tête\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Window\BounceWindow.hpp">
+      <Filter>Fichiers d%27en-tête\Rendering\Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="makefile" />
   </ItemGroup>
 </Project>

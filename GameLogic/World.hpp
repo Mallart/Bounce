@@ -14,6 +14,7 @@ namespace Bounce
 		BPROPERTY(protected, ::std::vector<Object*>, Objects);
 		BACCESSOR(public, protected, ::std::vector<Object*>, Objects);
 	public:
+		World() { Uri = ""; };
 		World(::std::string _Uri);
 		// Creates a new world. Same as calling World constructor with a URI pointing to an unavailable ressource.
 		static World* Create(::std::string _Uri);

@@ -1,4 +1,6 @@
 #pragma once
+#include "../Geometry/Geometry.hpp"
+#include "../Geometry/Primitives/Primitive.hpp"
 #include "World.hpp"
 #include "Player.hpp"
 

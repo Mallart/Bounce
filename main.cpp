@@ -3,44 +3,9 @@
 // This project's aim is to display a cool and simple way to implement a physics engine in a graphical
 // project using C++ and SFML.
 
-#define TESTS
-#define MAX_FPS 144
-
-namespace Bounce
-{
-
-	static void handleEvents(sf::Window& window)
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			switch (event.type)
-			{
-			case sf::Event::Closed:
-				window.close();
-				break;
-			default:
-				break;
-			}
-		}
-	}
-
-	static void runWindow(sf::RenderWindow& window)
-	{
-		while (window.isOpen())
-		{
-			handleEvents(window);
-			window.clear(sf::Color::Black);
-			// dessin dans la fenêtre
-			window.display();
-		}
-	}
-
-
-}
-
 using namespace Bounce;
 
+#define TESTS
 #ifdef TESTS
 static void test()
 {
@@ -59,7 +24,6 @@ static void test()
 	std::cout << Maths::Vector3(1,2,3).ToString() << std::endl;
 	std::cout << (::std::string)(Maths::Vector4)Maths::Vector3::Up << std::endl;
 	std::cout << (::std::string)Maths::Vector4(5, 4, 3, 2).GetVector2() << std::endl;
-
 
 	Maths::Vector<int> _vec3;
 	::std::cout << _vec3.Set(0, 1).Set(1,2).Set(2,8).ToString() << ::std::endl;
@@ -88,7 +52,7 @@ static void test()
 	::std::cout << ::std::string("Transform position: ") << _tc.GetPosition().ToString() << ::std::endl;
 #pragma endregion
 #pragma endregion
-	exit(Bounce::Errors::NO_ERROR);
+	//exit(Bounce::Errors::NO_ERROR);
 }
 #endif
 
@@ -99,8 +63,6 @@ int main()
 #ifdef TESTS
 	test();
 #endif
-	window.create(sf::VideoMode::getDesktopMode(), "Bounce Physics", sf::Style::Fullscreen);
-	window.setFramerateLimit(MAX_FPS);
-	Bounce::runWindow(window);
+	BounceWindow("Bounce test").Show();
 	return 0;
 }
