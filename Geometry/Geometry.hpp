@@ -1,17 +1,11 @@
 #pragma once
 #include "../include.hpp"
+#include "Primitives/Primitive.hpp"
 
 namespace Bounce::Geometry
 {
-	BCLASS(Geometry)
+	BCLASS(Geometry) : Primitive::Primitive
 	{
-		BAPROPERTY(public, protected, sf::VertexArray, Vertices)
-	public:
-		Geometry(sf::VertexArray _Vertices)
-		{
-			Vertices = _Vertices;
-			for (size_t i = 0; i < Vertices.getVertexCount(); ++i)
-				Vertices[i].color = sf::Color::Magenta;
-		}
+
 	};
 }

@@ -25,9 +25,9 @@ namespace Bounce
 		virtual void AddComponent(Components::Component & _component) { Components.push_back(&_component); };
 		// Adds a component pointer.
 		virtual void AddComponent(Components::RefComponent _component) { Components.push_back(_component); };
-		// Returns true if this object is drawable (= inherits from the sf::Drawable interface).
-		// Objects are not drawable by default.
-		virtual bool IsDrawable() { return dynamic_cast<sf::Drawable*>(this) || dynamic_cast<Render::RefRenderable>(this) ? 1 : 0; }
+		// Returns true if this object is renderable
+		// Objects are not Renderable by default.
+		virtual bool IsRenderable() { return dynamic_cast<Render::RefRenderable>(this) ? 1 : 0; }
 
 		~Object()
 		{

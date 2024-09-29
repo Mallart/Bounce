@@ -16,8 +16,8 @@ namespace Bounce
 		BPROPERTY(protected, Components::RefMeshComponent, MeshComponent);
 	public:
 		Body() {};
-		// Bodies are drawable by default
-		virtual bool IsDrawable() override { return 1; }
+		// Bodies are Renderable by default
+		virtual bool IsRenderable() override { return 1; }
 		virtual void draw() override
 		{
 

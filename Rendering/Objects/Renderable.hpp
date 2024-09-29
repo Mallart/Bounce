@@ -1,4 +1,5 @@
 #include "../../include.hpp"
+#include "../../Geometry/Geometry.hpp"
 
 namespace Bounce::Render
 {

@@ -37,14 +37,14 @@ namespace Bounce
 		return _w;
 	}
 
-	const ::std::vector<Render::RefRenderable> World::GetDrawable() const
+	const ::std::vector<Render::RefRenderable> World::GetRenderable() const
 	{
 		return RenderableObjects;
 	}
 	
 	bool World::AttachObject(Object* _object, bool _check)
 	{
-		bool isRenderable = dynamic_cast<::sf::Drawable*>(_object) || dynamic_cast<Render::RefRenderable>(_object);
+		bool isRenderable = dynamic_cast<Render::RefRenderable>(_object);
 		Objects.push_back(_object);
 		// if object is renderable, add it to the list of renderable objects of this world.
 		if (isRenderable)
@@ -64,7 +64,7 @@ namespace Bounce
 	
 	bool World::DetachObject(Object* _object, bool _check)
 	{
-		bool isRenderable = dynamic_cast<::sf::Drawable*>(_object) || dynamic_cast<Render::RefRenderable>(_object);
+		bool isRenderable = dynamic_cast<Render::RefRenderable>(_object);
 		
 		// Removes element from the World's objects list.
 		auto _it = ::std::find(Objects.begin(), Objects.end(), _object);

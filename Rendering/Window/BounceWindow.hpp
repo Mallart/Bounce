@@ -1,7 +1,8 @@
 #include "../../include.hpp"
 #include "../../Maths/Vectors.hpp"
 #include "../../GameLogic/World.hpp"
-#include <SFML/OpenGL.hpp>
+#include "SFML/OpenGL.hpp"
+#include "GL/glew.h"
 
 #define MAX_FPS 144
 
@@ -79,7 +80,7 @@ namespace Bounce
 			w->clear(sf::Color::Black);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			// Draw renderable objects.
-			for (Render::RefRenderable _object : w->RenderedWorld.GetDrawable())
+			for (Render::RefRenderable _object : w->RenderedWorld.GetRenderable())
 				dynamic_cast<Render::RefRenderable>(_object)->draw();
 			w->popGLStates();
 			// dessin dans la fenêtre
