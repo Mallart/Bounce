@@ -1,5 +1,6 @@
 #pragma once
 #include "../include.hpp"
+#include "../Rendering/Objects/Renderable.hpp"
 #include "Components/Component.hpp"
 
 namespace Bounce
@@ -13,20 +14,20 @@ namespace Bounce
 		// This object's ID.
 		BAPROPERTY(public, protected, uint64_t, ID);
 		// Scripts and components attached to this object.
-		BAPROPERTY(public, protected, ::std::vector<Components::Component*>, Components);
+		BAPROPERTY(public, protected, ::std::vector<Components::RefComponent>, Components);
 	public:
 		virtual ::std::string ToString() { return GetName(); };
 		// Returns a pointer on a component if found, 0 otherwise.
-		virtual Components::Component* TryGetComponent(::std::string _ComponentName) { for (Components::Component* c : Components) if (c->GetName() == _ComponentName) return c; return 0; }
+		virtual Components::RefComponent TryGetComponent(::std::string _ComponentName) { for (Components::RefComponent c : Components) if (c->GetName() == _ComponentName) return c; return 0; }
 		// Returns a pointer on a component if found, 0 otherwise.
-		virtual Components::Component* TryGetComponent(uint64_t _ComponentID) { for (Components::Component* c : Components) if (c->GetID() == _ComponentID) return c; return 0; }
+		virtual Components::RefComponent TryGetComponent(uint64_t _ComponentID) { for (Components::RefComponent c : Components) if (c->GetID() == _ComponentID) return c; return 0; }
 		// Adds a component by reference.
 		virtual void AddComponent(Components::Component & _component) { Components.push_back(&_component); };
 		// Adds a component pointer.
-		virtual void AddComponent(Components::Component * _component) { Components.push_back(_component); };
+		virtual void AddComponent(Components::RefComponent _component) { Components.push_back(_component); };
 		// Returns true if this object is drawable (= inherits from the sf::Drawable interface).
 		// Objects are not drawable by default.
-		virtual bool IsDrawable() { return dynamic_cast<sf::Drawable*>(this) ? 1 : 0; }
+		virtual bool IsDrawable() { return dynamic_cast<sf::Drawable*>(this) || dynamic_cast<Render::RefRenderable>(this) ? 1 : 0; }
 
 		~Object()
 		{
@@ -36,11 +37,6 @@ namespace Bounce
 				delete _c;
 			}
 			ID = 0;
-			delete &Name;
-			delete this;
 		}
 	};
-
-	typedef Object* RefObject;
-
 }

@@ -166,6 +166,7 @@
     <ClInclude Include="Maths\Quaternion.hpp" />
     <ClInclude Include="Maths\Radians.hpp" />
     <ClInclude Include="Maths\Vectors.hpp" />
+    <ClInclude Include="Rendering\Objects\Renderable.hpp" />
     <ClInclude Include="Rendering\Window\BounceWindow.hpp" />
   </ItemGroup>
   <ItemGroup>

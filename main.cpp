@@ -52,17 +52,30 @@ static void test()
 	::std::cout << ::std::string("Transform position: ") << _tc.GetPosition().ToString() << ::std::endl;
 #pragma endregion
 #pragma endregion
+
+#pragma region World_and_Objects
+	World _currentWorld;
+	Object _myObject;
+	Body _myBody;
+	_myObject.Name = "A test object";
+	_myObject.ID = 1;
+	_myBody.Name = "A test body";
+	_myBody.ID = 2;
+	::std::cout << "Attaching object: " << _currentWorld.AttachObject(&_myObject, true) << ::std::endl;
+	::std::cout << "Attaching body (renderable object): " << _currentWorld.AttachObject(&_myBody, true) << ::std::endl;
+	::std::cout << "Detaching object: " << _currentWorld.DetachObject(&_myObject, true) << ::std::endl;
+	::std::cout << "Detaching body (renderable object): " << _currentWorld.DetachObject(&_myBody, true) << ::std::endl;
+#pragma endregion
 	//exit(Bounce::Errors::NO_ERROR);
 }
 #endif
 
+
+
 int main()
 {
-	// window declaration (keep only one window)
-	sf::RenderWindow window;
 #ifdef TESTS
 	test();
 #endif
-	BounceWindow("Bounce test").Show();
-	return 0;
+	InitEngine("Bounce Engine");
 }

@@ -11,6 +11,10 @@ namespace Bounce
 		BAPROPERTY(public, protected, ::std::string, Uri);
 		// World content
 		BAPROPERTY(public, protected, ::std::vector<Object*>, Objects);
+
+	protected:
+		// A list of objects in this world that are renderable / drawable.
+		::std::vector<Render::RefRenderable> RenderableObjects;
 	public:
 		World() { Uri = ""; };
 		World(::std::string _Uri);
@@ -23,7 +27,11 @@ namespace Bounce
 		// Destroys all the World content then the world itself in memory.
 		// Doesn't affect the World's save.
 		void Unload();
+		// Attach an object to this world. Returns true if the operation was successful and if check is enabled.
+		bool AttachObject(Object* _object, bool _check = false);
+		// Detach an object from this world. Returns true if the operation was successful and if check is enabled.
+		bool DetachObject(Object* _object, bool _check = false);
 		// Returns only the drawable objects in this Scene / World.
-		::std::vector<Object*> GetDrawable();
+		const ::std::vector<Render::RefRenderable> GetDrawable() const;
 	};
 }

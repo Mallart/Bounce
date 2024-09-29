@@ -49,6 +49,9 @@
     <Filter Include="Fichiers d%27en-tête\Rendering\Window">
       <UniqueIdentifier>{7a934d4b-b619-44e2-ba38-f72548a8f738}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Rendering\Objects">
+      <UniqueIdentifier>{c2cd696d-617d-4cde-b36f-ed2a929e0d2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="Rendering\Window\BounceWindow.hpp">
       <Filter>Fichiers d%27en-tête\Rendering\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Objects\Renderable.hpp">
+      <Filter>Fichiers d%27en-tête\Rendering\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

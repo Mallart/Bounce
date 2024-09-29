@@ -10,14 +10,15 @@ namespace Bounce
 		Can be static, dynamic, ruled by physics or not, triggered by events or not...
 		Basically an object with a Collider component.
 	*/
-	BCLASS(Body) : public Object, public ::sf::Drawable
+	BCLASS(Body) : public Object, public Render::Renderable
 	{
-		BPROPERTY(protected, Components::PhysicsComponent, PhysicsComponent);
-		BPROPERTY(protected, Components::MeshComponent, MeshComponent);
+		BPROPERTY(protected, Components::RefPhysicsComponent, PhysicsComponent);
+		BPROPERTY(protected, Components::RefMeshComponent, MeshComponent);
 	public:
+		Body() {};
 		// Bodies are drawable by default
 		virtual bool IsDrawable() override { return 1; }
-		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override
+		virtual void draw() override
 		{
 
 		}
