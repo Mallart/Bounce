@@ -9,15 +9,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichier sources">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\GameLogic">
       <UniqueIdentifier>{5d67ad40-38e0-4149-a7f1-2219f11e1c6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Structures">
-      <UniqueIdentifier>{942b3e6a-3062-44fa-a4b6-5fb9460fd7a5}</UniqueIdentifier>
+    <Filter Include="Fichiers d%27en-tête\Debug">
+      <UniqueIdentifier>{b8c288a9-f432-4687-84fa-168976a570f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichier sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Fichier sources\GameLogic">
       <UniqueIdentifier>{d308f048-7840-40af-8aa5-8f626aaae018}</UniqueIdentifier>
@@ -28,39 +28,127 @@
     <Filter Include="Fichier sources\Debug">
       <UniqueIdentifier>{be7d9b8e-fa5a-4a91-a471-8ef15d7dbb95}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Debug">
-      <UniqueIdentifier>{b8c288a9-f432-4687-84fa-168976a570f5}</UniqueIdentifier>
+    <Filter Include="Fichiers d%27en-tête\GameLogic\Components">
+      <UniqueIdentifier>{d83b1780-5b46-43c1-9e9a-1e862bc4bcf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Maths">
+      <UniqueIdentifier>{942b3e6a-3062-44fa-a4b6-5fb9460fd7a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\IO">
+      <UniqueIdentifier>{c846a776-9fc5-401a-8f82-08dadbe05384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Geometry">
+      <UniqueIdentifier>{6c1854e0-3e6e-4b87-a117-976e0460e491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Geometry\Primitives">
+      <UniqueIdentifier>{ad5b5006-30b5-419d-b08f-d11f2d1de64b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Rendering">
+      <UniqueIdentifier>{2221d640-1618-4660-b696-788fd01fa124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Rendering\Window">
+      <UniqueIdentifier>{7a934d4b-b619-44e2-ba38-f72548a8f738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Rendering\Objects">
+      <UniqueIdentifier>{c2cd696d-617d-4cde-b36f-ed2a929e0d2c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Fichier sources</Filter>
     </ClCompile>
-    <ClCompile Include="Vectors.cpp">
+    <ClCompile Include="GameLogic\World.cpp">
+      <Filter>Fichier sources\GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\Vectors.cpp">
       <Filter>Fichier sources\Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Components\TransformComponent.cpp">
+      <Filter>Fichier sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.hpp">
+    <ClInclude Include="Debug\Errors.hpp">
+      <Filter>Fichiers d%27en-tête\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Components\Component.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Being.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Body.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Game.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Object.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Player.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Singleton.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\World.hpp">
       <Filter>Fichiers d%27en-tête\GameLogic</Filter>
     </ClInclude>
     <ClInclude Include="include.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Object.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    <ClInclude Include="Maths\Entity.hpp">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
     </ClInclude>
-    <ClInclude Include="World.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    <ClInclude Include="Maths\Maths.hpp">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
     </ClInclude>
-    <ClInclude Include="Vectors.hpp">
-      <Filter>Fichiers d%27en-tête\Structures</Filter>
+    <ClInclude Include="Maths\Vectors.hpp">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
     </ClInclude>
-    <ClInclude Include="Errors.hpp">
-      <Filter>Fichiers d%27en-tête\Debug</Filter>
+    <ClInclude Include="IO\IO.hpp">
+      <Filter>Fichiers d%27en-tête\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="BounceEngine.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Macros.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Components\PhysicsComponent.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Components\TransformComponent.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Quaternion.hpp">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Radians.hpp">
+      <Filter>Fichiers d%27en-tête\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Components\MeshComponent.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Primitives\Primitive.hpp">
+      <Filter>Fichiers d%27en-tête\Geometry\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Primitives\Cube.hpp">
+      <Filter>Fichiers d%27en-tête\Geometry\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Geometry.hpp">
+      <Filter>Fichiers d%27en-tête\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Window\BounceWindow.hpp">
+      <Filter>Fichiers d%27en-tête\Rendering\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Objects\Renderable.hpp">
+      <Filter>Fichiers d%27en-tête\Rendering\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="makefile" />
   </ItemGroup>
 </Project>

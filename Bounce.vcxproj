@@ -104,15 +104,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\matha\Documents\DLL\SFML-2.6.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\matha\Documents\DLL\glew-2.1.0-win32\glew-2.1.0\include;C:\Users\matha\Documents\DLL\SFML-2.6.1\include</AdditionalIncludeDirectories>
       <CompileAsManaged>false</CompileAsManaged>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;kernel32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\matha\Documents\DLL\SFML-2.6.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\matha\Documents\DLL\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;C:\Users\matha\Documents\DLL\SFML-2.6.1\lib;</AdditionalLibraryDirectories>
+      <LinkStatus>true</LinkStatus>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -123,28 +124,56 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\matha\Documents\DLL\glew-2.1.0-win32\glew-2.1.0\include;C:\Users\matha\Documents\DLL\SFML-2.6.1\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;kernel32.lib;%(AdditionalDependencies);$(CoreLibraryDependencies);</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\matha\Documents\DLL\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;C:\Users\matha\Documents\DLL\SFML-2.6.1\lib;</AdditionalLibraryDirectories>
+      <LinkStatus>true</LinkStatus>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameLogic\Components\TransformComponent.cpp" />
+    <ClCompile Include="GameLogic\World.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Vectors.cpp" />
+    <ClCompile Include="Maths\Vectors.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Errors.hpp" />
-    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Debug\Errors.hpp" />
+    <ClInclude Include="BounceEngine.hpp" />
+    <ClInclude Include="GameLogic\Being.hpp" />
+    <ClInclude Include="GameLogic\Body.hpp" />
+    <ClInclude Include="GameLogic\Components\Component.hpp" />
+    <ClInclude Include="GameLogic\Components\MeshComponent.hpp" />
+    <ClInclude Include="GameLogic\Components\PhysicsComponent.hpp" />
+    <ClInclude Include="GameLogic\Components\TransformComponent.hpp" />
+    <ClInclude Include="GameLogic\Game.hpp" />
+    <ClInclude Include="GameLogic\Object.hpp" />
+    <ClInclude Include="GameLogic\Player.hpp" />
+    <ClInclude Include="GameLogic\Singleton.hpp" />
+    <ClInclude Include="GameLogic\World.hpp" />
+    <ClInclude Include="Geometry\Geometry.hpp" />
+    <ClInclude Include="Geometry\Primitives\Cube.hpp" />
+    <ClInclude Include="Geometry\Primitives\Primitive.hpp" />
     <ClInclude Include="include.hpp" />
-    <ClInclude Include="Object.hpp" />
-    <ClInclude Include="Vectors.hpp" />
-    <ClInclude Include="World.hpp" />
+    <ClInclude Include="IO\IO.hpp" />
+    <ClInclude Include="Macros.hpp" />
+    <ClInclude Include="Maths\Entity.hpp" />
+    <ClInclude Include="Maths\Maths.hpp" />
+    <ClInclude Include="Maths\Quaternion.hpp" />
+    <ClInclude Include="Maths\Radians.hpp" />
+    <ClInclude Include="Maths\Vectors.hpp" />
+    <ClInclude Include="Rendering\Objects\Renderable.hpp" />
+    <ClInclude Include="Rendering\Window\BounceWindow.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
