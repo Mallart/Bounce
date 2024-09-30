@@ -1,5 +1,6 @@
 #include <iostream>
 #include "BounceEngine.hpp"
+#include "Geometry/Primitives/Cube.hpp"
 // This project's aim is to display a cool and simple way to implement a physics engine in a graphical
 // project using C++ and SFML.
 

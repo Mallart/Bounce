@@ -11,6 +11,7 @@ namespace Bounce::Geometry::Primitive
 			// Vertex Buffer Object
 		BAPROPERTY(public, protected, GLuint, VBO)
 	public:
+		Primitive();
 		Primitive(float* _Vertices, uint64_t _NumberOfVertices)
 		{
 			Vertices = _Vertices;
