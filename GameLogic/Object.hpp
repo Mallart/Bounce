@@ -1,5 +1,6 @@
 #pragma once
 #include "../include.hpp"
+#include "../IO/Serial.hpp"
 #include "../Rendering/Objects/Renderable.hpp"
 #include "Components/Component.hpp"
 
@@ -28,6 +29,12 @@ namespace Bounce
 		// Returns true if this object is renderable
 		// Objects are not Renderable by default.
 		virtual bool IsRenderable() { return dynamic_cast<Render::RefRenderable>(this) ? 1 : 0; }
+		// Serializes the object to save it in a file.
+		virtual ::std::string Serialize()
+		{
+			::std::string s;
+			return s;
+		}
 
 		~Object()
 		{

@@ -146,6 +146,9 @@
     <ClInclude Include="Rendering\Objects\Renderable.hpp">
       <Filter>Fichiers d%27en-tête\Rendering\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="IO\Serial.hpp">
+      <Filter>Fichiers d%27en-tête\IO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

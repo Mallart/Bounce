@@ -67,7 +67,19 @@ static void test()
 	::std::cout << "Detaching object: " << _currentWorld.DetachObject(&_myObject, true) << ::std::endl;
 	::std::cout << "Detaching body (renderable object): " << _currentWorld.DetachObject(&_myBody, true) << ::std::endl;
 #pragma endregion
-	//exit(Bounce::Errors::NO_ERROR);
+#pragma region Serialization
+	::std::cout << ::std::hex << Serial::QwordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff")	<< ::std::endl;
+	::std::cout << ::std::hex << Serial::DwordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff")	<< ::std::endl;
+	::std::cout << ::std::hex << Serial:: WordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff")	<< ::std::endl;
+	::std::cout << Serial::IntToXWord(('A' << 8) + 'B', 2) << ::std::endl;
+	::std::string stable = Serial::CreateTable({"this", "is", "element"});
+	Serial::Table table = Serial::ParseTable(stable);
+	Serial::DisplayTable(table);
+	// I have to test and finish this
+	::std::cout << ::std::endl << Serial::GetTableElement(table, 1) << ::std::endl; // expected output: "is"
+	::std::cout << ::std::endl << Serial::GetTableElement(table, 2) << ::std::endl; // expected output: "element"
+#pragma endregion
+	exit(Bounce::Errors::NERROR);
 }
 #endif
 

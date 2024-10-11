@@ -162,6 +162,7 @@
     <ClInclude Include="Geometry\Primitives\Primitive.hpp" />
     <ClInclude Include="include.hpp" />
     <ClInclude Include="IO\IO.hpp" />
+    <ClInclude Include="IO\Serial.hpp" />
     <ClInclude Include="Macros.hpp" />
     <ClInclude Include="Maths\Entity.hpp" />
     <ClInclude Include="Maths\Maths.hpp" />
