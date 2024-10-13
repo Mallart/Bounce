@@ -144,8 +144,9 @@
     <ClCompile Include="Maths\Vectors.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Debug\Errors.hpp" />
     <ClInclude Include="BounceEngine.hpp" />
+    <ClInclude Include="GameDebug\Console.hpp" />
+    <ClInclude Include="GameDebug\Errors.hpp" />
     <ClInclude Include="GameLogic\Being.hpp" />
     <ClInclude Include="GameLogic\Body.hpp" />
     <ClInclude Include="GameLogic\Components\Component.hpp" />

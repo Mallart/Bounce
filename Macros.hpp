@@ -18,6 +18,8 @@
 #define BCLASS_F(name) typedef name* Ref##name; class name
 // For template classes.
 #define BTCLASS(name, ...) template<__VA_ARGS__> class name
+// For static classes.
+#define BSCLASS(name) class name; typedef name* Ref##name; class name
 
 // Serializable interface by the engine.
 // An interface is a class that cannot be instantiated. The engine will throw an error if you put a regular class there.

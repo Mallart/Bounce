@@ -12,21 +12,12 @@
     <Filter Include="Fichiers d%27en-tête\GameLogic">
       <UniqueIdentifier>{5d67ad40-38e0-4149-a7f1-2219f11e1c6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Debug">
-      <UniqueIdentifier>{b8c288a9-f432-4687-84fa-168976a570f5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichier sources">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Fichier sources\GameLogic">
       <UniqueIdentifier>{d308f048-7840-40af-8aa5-8f626aaae018}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichier sources\Structures">
-      <UniqueIdentifier>{f88a46ca-c649-45f1-b919-142539012f2d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichier sources\Debug">
-      <UniqueIdentifier>{be7d9b8e-fa5a-4a91-a471-8ef15d7dbb95}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers d%27en-tête\GameLogic\Components">
       <UniqueIdentifier>{d83b1780-5b46-43c1-9e9a-1e862bc4bcf2}</UniqueIdentifier>
@@ -52,6 +43,18 @@
     <Filter Include="Fichiers d%27en-tête\Rendering\Objects">
       <UniqueIdentifier>{c2cd696d-617d-4cde-b36f-ed2a929e0d2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameDebug">
+      <UniqueIdentifier>{b8c288a9-f432-4687-84fa-168976a570f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichier sources\GameDebug">
+      <UniqueIdentifier>{be7d9b8e-fa5a-4a91-a471-8ef15d7dbb95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichier sources\Maths">
+      <UniqueIdentifier>{f88a46ca-c649-45f1-b919-142539012f2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichier sources\GameLogic\Components">
+      <UniqueIdentifier>{ff3ec147-a14c-4e10-89b2-ba3dd2e4dbde}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -61,16 +64,13 @@
       <Filter>Fichier sources\GameLogic</Filter>
     </ClCompile>
     <ClCompile Include="Maths\Vectors.cpp">
-      <Filter>Fichier sources\Structures</Filter>
+      <Filter>Fichier sources\Maths</Filter>
     </ClCompile>
     <ClCompile Include="GameLogic\Components\TransformComponent.cpp">
-      <Filter>Fichier sources</Filter>
+      <Filter>Fichier sources\GameLogic\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Debug\Errors.hpp">
-      <Filter>Fichiers d%27en-tête\Debug</Filter>
-    </ClInclude>
     <ClInclude Include="GameLogic\Components\Component.hpp">
       <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
     </ClInclude>
@@ -154,6 +154,12 @@
     </ClInclude>
     <ClInclude Include="GameLogic\Components\InventoryComponent.hpp">
       <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDebug\Console.hpp">
+      <Filter>Fichiers d%27en-tête\GameDebug</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDebug\Errors.hpp">
+      <Filter>Fichiers d%27en-tête\GameDebug</Filter>
     </ClInclude>
     <ClInclude Include="GameLogic\Item.hpp">
       <Filter>Fichiers d%27en-tête\GameLogic</Filter>
