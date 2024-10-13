@@ -19,15 +19,15 @@ static void test()
 	Bounce::Maths::Vector<long double> v3_2{ 3.f, 2.f, 4.f };
 	std::cout << v3.Magnitude() << std::endl;
 	std::cout << v3.Distance(v3_2) << std::endl;
-	Bounce::Maths::Vector<long double> v12( 5, 7, 8, 9, 5, 8, 3, 5, 7, 8, 3, 4, 5, 7, 8 );
+	Bounce::Maths::Vector<long double> v12(5, 7, 8, 9, 5, 8, 3, 5, 7, 8, 3, 4, 5, 7, 8);
 	std::cout << v12.ToString() << std::endl;
-	std::cout << Maths::Vector2(1,2).ToString() << std::endl;
-	std::cout << Maths::Vector3(1,2,3).ToString() << std::endl;
+	std::cout << Maths::Vector2(1, 2).ToString() << std::endl;
+	std::cout << Maths::Vector3(1, 2, 3).ToString() << std::endl;
 	std::cout << (::std::string)(Maths::Vector4)Maths::Vector3::Up << std::endl;
 	std::cout << (::std::string)Maths::Vector4(5, 4, 3, 2).GetVector2() << std::endl;
 
 	Maths::Vector<int> _vec3;
-	::std::cout << _vec3.Set(0, 1).Set(1,2).Set(2,8).ToString() << ::std::endl;
+	::std::cout << _vec3.Set(0, 1).Set(1, 2).Set(2, 8).ToString() << ::std::endl;
 	_vec3.Set(3) = 5;
 	::std::cout << _vec3.ToString() << ::std::endl;
 
@@ -42,7 +42,7 @@ static void test()
 	::std::cout << Maths::Quaternion(Maths::Vector3d(54, 178, 3)).GetNorm() << ::std::endl;
 	::std::cout << (::std::string)Maths::Quaternion(Maths::Vector3d(0, 90, 90)).Rotate({ 0, 1, 1 }) << ::std::endl;
 
-	::std::cout << Maths::Vector<int>(5, 6, 78, 8, 8, 7 ,9 ,6 ,63).ToString() << ::std::endl;
+	::std::cout << Maths::Vector<int>(5, 6, 78, 8, 8, 7, 9, 6, 63).ToString() << ::std::endl;
 
 #pragma endregion
 	std::cout << std::endl;
@@ -68,18 +68,22 @@ static void test()
 	::std::cout << "Detaching body (renderable object): " << _currentWorld.DetachObject(&_myBody, true) << ::std::endl;
 #pragma endregion
 #pragma region Serialization
-	::std::cout << ::std::hex << Serial::QwordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff")	<< ::std::endl;
-	::std::cout << ::std::hex << Serial::DwordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff")	<< ::std::endl;
-	::std::cout << ::std::hex << Serial:: WordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff")	<< ::std::endl;
+	::std::cout << ::std::hex << Serial::QwordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff") << ::std::endl;
+	::std::cout << ::std::hex << Serial::DwordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff") << ::std::endl;
+	::std::cout << ::std::hex << Serial::WordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff") << ::std::endl;
 	::std::cout << Serial::IntToXWord(('A' << 8) + 'B', 2) << ::std::endl;
-	::std::string stable = Serial::CreateTable({"this", "is", "element"});
+	::std::string stable = Serial::CreateTable({ "this", "is", "element" });
 	Serial::Table table = Serial::ParseTable(stable);
 	Serial::DisplayTable(table);
 	// I have to test and finish this
 	::std::cout << ::std::endl << Serial::GetTableElement(table, 1) << ::std::endl; // expected output: "is"
 	::std::cout << ::std::endl << Serial::GetTableElement(table, 2) << ::std::endl; // expected output: "element"
+	Serial::FreeTable(&table);
+
+	::std::cout << Serial::ParseString(Serial::CreateString("je mange des pâtes")) << ::std::endl;
+	::std::cout << Serial::ParseString(::std::string({ 0, 0, 0, 0, 0, 0, 0, 0xa }).append(Serial::CreateString("je mange des pâtes").substr(QWORD_SIZE))) << ::std::endl;
 #pragma endregion
-	exit(Bounce::Errors::NERROR);
+	//exit(Bounce::Errors::NERROR);
 }
 #endif
 

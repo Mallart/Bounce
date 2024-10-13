@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bounce", "Bounce.vcxproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{62E6D9D0-85AB-4E9B-A7B4-129C9EBB8C33}"
 	ProjectSection(SolutionItems) = preProject
-		GameLogic\Components\PhysicsComponent.hpp = GameLogic\Components\PhysicsComponent.hpp
+		GameLogic\Item.hpp = GameLogic\Item.hpp
 	EndProjectSection
 EndProject
 Global

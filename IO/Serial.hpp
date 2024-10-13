@@ -55,7 +55,7 @@ namespace Bounce::Serial
 		// header's size (where the indexes are)
 		uint32_t header_size;
 		uint32_t* indexes;
-		const char* data_buffer;
+		char* data_buffer;
 	};
 
 	inline static uint32_t TableCountElements(Table t)
@@ -90,12 +90,12 @@ namespace Bounce::Serial
 			t.indexes[i] = DwordToInt(s.substr(index, DWORD_SIZE));
 			index += 4;
 		}
-		t.data_buffer = (const char*)malloc(t.size - t.header_size);
+		t.data_buffer = (char*)malloc(t.size - t.header_size);
 		memcpy((void*)t.data_buffer, s.c_str() + data_begin, t.size - t.header_size);
 		return t;
 	}
 
-	// Creates a table containing each of the given strings elements.
+	// Creates a table containing each of the given (/strings) elements.
 	// Each string should already be serialized, as the table is only a way of serializing an array.
 	static ::std::string CreateTable(::std::vector<::std::string> elements)
 	{
@@ -119,6 +119,30 @@ namespace Bounce::Serial
 		return table;
 	}
 
+	// Creates a table containing each of the given (/strings) elements.
+	// Each string should already be serialized, as the table is only a way of serializing an array.
+	static ::std::string CreateTable(void* elements, size_t n_elements)
+	{
+		uint64_t 
+			size = 0,
+			_header_size = n_elements * DWORD_SIZE + QWORD_SIZE + DWORD_SIZE;
+		::std::string table =
+			  Serial::IntToXWord(_header_size - QWORD_SIZE - DWORD_SIZE, 4)	// table header size
+			;
+		::std::string data;
+		for (size_t i = 0; i < n_elements; ++i)
+		{
+			size += DWORD_SIZE; // each pointer adds some length to the table
+			table += Serial::IntToXWord(data.size(), DWORD_SIZE);
+			data += ((char*)elements)[i];
+		}
+		size += QWORD_SIZE + DWORD_SIZE // fixed header size
+			+ data.size();
+		// adding total size
+		table = Serial::IntToXWord(size, 8) + table + data;
+		return table;
+	}
+
 	// Returns an element from the data buffer.
 	static ::std::string GetTableElement(Table t, uint32_t index)
 	{
@@ -129,5 +153,30 @@ namespace Bounce::Serial
 			return s.substr(0, t.size - t.header_size);
 		else
 			return s.substr(0, t.indexes[index + 1] - t.indexes[index]);
+	}
+
+	// Frees a table in memory.
+	static void FreeTable(Table* t)
+	{
+		free(t->indexes);
+		free(t->data_buffer);
+		t->header_size = 0;
+		t->size = 0;
+	}
+
+	// Serializes a string.
+	inline static ::std::string CreateString(::std::string original)
+	{
+		return IntToXWord(original.size(), QWORD_SIZE) + original;
+	}
+
+	// Parses a serialized string.
+	inline static ::std::string ParseString(::std::string buffer)
+	{
+		size_t _s_size = QwordToInt(buffer.substr(0, QWORD_SIZE));
+		if (_s_size && _s_size <= buffer.size())
+			return buffer.substr(QWORD_SIZE, _s_size);
+		else
+			return "Invalid given string.";
 	}
 }

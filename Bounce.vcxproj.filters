@@ -149,6 +149,15 @@
     <ClInclude Include="IO\Serial.hpp">
       <Filter>Fichiers d%27en-tête\IO</Filter>
     </ClInclude>
+    <ClInclude Include="GameLogic\Components\PlayerStats.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Components\InventoryComponent.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Item.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

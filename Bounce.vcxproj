@@ -149,10 +149,13 @@
     <ClInclude Include="GameLogic\Being.hpp" />
     <ClInclude Include="GameLogic\Body.hpp" />
     <ClInclude Include="GameLogic\Components\Component.hpp" />
+    <ClInclude Include="GameLogic\Components\InventoryComponent.hpp" />
     <ClInclude Include="GameLogic\Components\MeshComponent.hpp" />
     <ClInclude Include="GameLogic\Components\PhysicsComponent.hpp" />
+    <ClInclude Include="GameLogic\Components\PlayerStats.hpp" />
     <ClInclude Include="GameLogic\Components\TransformComponent.hpp" />
     <ClInclude Include="GameLogic\Game.hpp" />
+    <ClInclude Include="GameLogic\Item.hpp" />
     <ClInclude Include="GameLogic\Object.hpp" />
     <ClInclude Include="GameLogic\Player.hpp" />
     <ClInclude Include="GameLogic\Singleton.hpp" />

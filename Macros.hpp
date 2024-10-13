@@ -21,6 +21,7 @@
 
 // Serializable interface by the engine.
 // An interface is a class that cannot be instantiated. The engine will throw an error if you put a regular class there.
+// An interface should be derived from.
 #define BINTERFACE() class
 #define BINTERFACE(name) class name; typedef name* Ref##name; class name
 
