@@ -164,6 +164,9 @@
     <ClInclude Include="GameLogic\Item.hpp">
       <Filter>Fichiers d%27en-tête\GameLogic</Filter>
     </ClInclude>
+    <ClInclude Include="GameLogic\Event.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

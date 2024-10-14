@@ -8,9 +8,9 @@ using namespace Bounce;
 
 #define TESTS
 #ifdef TESTS
-static void test()
-{
 #pragma region Vectors
+static void VectorsTests()
+{
 	Bounce::Maths::Vector<float> _vec;
 	_vec = { 4, 5, 6 };
 	::std::cout << _vec.ToString() << ::std::endl;
@@ -31,11 +31,13 @@ static void test()
 	_vec3.Set(3) = 5;
 	::std::cout << _vec3.ToString() << ::std::endl;
 
-
-
+}
 #pragma endregion
-	std::cout << std::endl;
+
 #pragma region Quaternions
+static void QuaternionsTests()
+{
+	std::cout << std::endl;
 
 	::std::cout << Maths::Vector3d(5, 7, 8).Invert().ToString() << ::std::endl;
 	::std::cout << (::std::string)Maths::Quaternion(Maths::Vector3d(0, 0, 0)) << ::std::endl;
@@ -43,18 +45,22 @@ static void test()
 	::std::cout << (::std::string)Maths::Quaternion(Maths::Vector3d(0, 90, 90)).Rotate({ 0, 1, 1 }) << ::std::endl;
 
 	::std::cout << Maths::Vector<int>(5, 6, 78, 8, 8, 7, 9, 6, 63).ToString() << ::std::endl;
-
+}
 #pragma endregion
-	std::cout << std::endl;
 #pragma region Components
+static void ComponentsTests()
+{
 #pragma region Transform
 	Components::TransformComponent _tc(Maths::Vector3::Zero, Maths::Vector3::Zero);
 	//_tc.Move((Maths::Vector3d)(Maths::Vector3::Up) * 3.0L);
 	::std::cout << ::std::string("Transform position: ") << _tc.GetPosition().ToString() << ::std::endl;
 #pragma endregion
+}
 #pragma endregion
 
 #pragma region World_and_Objects
+static void WorldTests()
+{
 	World _currentWorld;
 	Object _myObject;
 	Body _myBody;
@@ -66,8 +72,11 @@ static void test()
 	::std::cout << "Attaching body (renderable object): " << _currentWorld.AttachObject(&_myBody, true) << ::std::endl;
 	::std::cout << "Detaching object: " << _currentWorld.DetachObject(&_myObject, true) << ::std::endl;
 	::std::cout << "Detaching body (renderable object): " << _currentWorld.DetachObject(&_myBody, true) << ::std::endl;
+}
 #pragma endregion
 #pragma region Serialization
+static void SerializationTests()
+{
 	::std::cout << ::std::hex << Serial::QwordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff") << ::std::endl;
 	::std::cout << ::std::hex << Serial::DwordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff") << ::std::endl;
 	::std::cout << ::std::hex << Serial::WordToInt("\xbe\xef\xbe\xef\xbe\xef\xaa\xbb\xcc\xdd\xee\xff") << ::std::endl;
@@ -80,9 +89,33 @@ static void test()
 	::std::cout << ::std::endl << Serial::GetTableElement(table, 2) << ::std::endl; // expected output: "element"
 	Serial::FreeTable(&table);
 
-	::std::cout << Serial::ParseString(Serial::CreateString("je mange des pâtes")) << ::std::endl;
-	::std::cout << Serial::ParseString(::std::string({ 0, 0, 0, 0, 0, 0, 0, 0xa }).append(Serial::CreateString("je mange des pâtes").substr(QWORD_SIZE))) << ::std::endl;
+	::std::cout << Serial::ParseString(Serial::CreateString("I eat pastas")) << ::std::endl;
+	::std::cout << Serial::ParseString(::std::string({ 0, 0, 0, 0, 0, 0, 0, 0xa }).append(Serial::CreateString("I eat pastas").substr(QWORD_SIZE))) << ::std::endl;
+}
+
+#pragma region Delegates
+static void DelegatesTests()
+{
+	Bounce::Events::Event e{ []() { ::std::cout << "This is a lambda, so I guess it works !" << ::std::endl; } };
+	auto lambdaToRemove = []() {::std::cout << "This lambda is not supposed to show up." << ::std::endl; };
+	e.AddMethod(lambdaToRemove);
+	e.RemoveMethod(lambdaToRemove);
+	e.AddMethod([]() { ::std::cout << "This is another lambda, and I'm really glad everything works fine." << ::std::endl;  });
+	e.FireEvent();
+}
 #pragma endregion
+static void test()
+{
+	::std::vector<BCALLBACK()> tests = {
+		VectorsTests,
+		QuaternionsTests,
+		WorldTests,
+		ComponentsTests,
+		SerializationTests,
+		DelegatesTests,
+	};
+	for (BCALLBACK(_test) : tests)
+		_test();
 	//exit(Bounce::Errors::NERROR);
 }
 #endif

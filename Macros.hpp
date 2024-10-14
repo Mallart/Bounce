@@ -57,3 +57,6 @@
 
 #define b_min(a, b) (a > b ? b : a);
 #define b_max(a, b) (a < b ? b : a);
+
+// a method that's called when an event is fired. Shouldn't return anything other than void.
+#define BCALLBACK(name) void (*name)()

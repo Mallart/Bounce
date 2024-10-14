@@ -21,23 +21,23 @@ namespace Bounce::Components
 		BAPROPERTY(public, protected, uint64_t, Level);
 
 	public:
-		virtual void OnLevelUp() = 0;
-		virtual void OnLevelDown() = 0;
+		Events::Event OnLevelUp;
+		Events::Event OnLevelDown;
 
 		// Levels up the player by n levels.
 		virtual void LevelUp(uint64_t n_levels = 1)
 		{
 			Level += n_levels;
-			if(OnLevelUp)
-				OnLevelUp();
+			if(OnLevelUp.HasMethods())
+				OnLevelUp.FireEvent();
 		}
 
 		// Levels down the player by n levels.
 		virtual void LevelDown(uint64_t n_levels = 1)
 		{
 			Level -= n_levels;
-			if(OnLevelDown)
-				OnLevelDown();
+			if(OnLevelDown.HasMethods())
+				OnLevelDown.FireEvent();
 		}
 
 		inline virtual float GetHealth()

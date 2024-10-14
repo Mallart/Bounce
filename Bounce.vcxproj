@@ -155,6 +155,7 @@
     <ClInclude Include="GameLogic\Components\PhysicsComponent.hpp" />
     <ClInclude Include="GameLogic\Components\PlayerStats.hpp" />
     <ClInclude Include="GameLogic\Components\TransformComponent.hpp" />
+    <ClInclude Include="GameLogic\Event.hpp" />
     <ClInclude Include="GameLogic\Game.hpp" />
     <ClInclude Include="GameLogic\Item.hpp" />
     <ClInclude Include="GameLogic\Object.hpp" />

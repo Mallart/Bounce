@@ -1,6 +1,6 @@
 #pragma once
+#include "../Event.hpp"
 #include "../../Maths/Maths.hpp"
-
 namespace Bounce
 {
 	namespace Components
