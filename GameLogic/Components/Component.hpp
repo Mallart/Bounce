@@ -1,5 +1,5 @@
 #pragma once
-#include "../Event.hpp"
+#include "../Interactions/Event.hpp"
 #include "../../Maths/Maths.hpp"
 namespace Bounce
 {

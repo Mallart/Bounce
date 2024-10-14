@@ -1,8 +1,9 @@
 #include "Component.hpp"
-#include "../Item.hpp"
+#include "../Interactions/Item.hpp"
 
 namespace Bounce::Components
 {
+	using namespace Interactions;
 	// Defines the behavior of basic inventory.
 	// Can be used both by playable and non-playable objects, such as containers and NPCs.
 	BINTERFACE(InventoryComponent) : public Component

@@ -55,6 +55,9 @@
     <Filter Include="Fichier sources\GameLogic\Components">
       <UniqueIdentifier>{ff3ec147-a14c-4e10-89b2-ba3dd2e4dbde}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameLogic\Interactions">
+      <UniqueIdentifier>{58c81e12-2d09-468d-a754-6f1901a78a61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -161,11 +164,14 @@
     <ClInclude Include="GameDebug\Errors.hpp">
       <Filter>Fichiers d%27en-tête\GameDebug</Filter>
     </ClInclude>
-    <ClInclude Include="GameLogic\Item.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    <ClInclude Include="GameLogic\Interactions\Item.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Interactions</Filter>
     </ClInclude>
-    <ClInclude Include="GameLogic\Event.hpp">
-      <Filter>Fichiers d%27en-tête\GameLogic</Filter>
+    <ClInclude Include="GameLogic\Interactions\Quest.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Interactions</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Interactions\Event.hpp">
+      <Filter>Fichiers d%27en-tête\GameLogic\Interactions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

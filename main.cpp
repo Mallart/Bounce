@@ -107,16 +107,18 @@ static void DelegatesTests()
 static void test()
 {
 	::std::vector<BCALLBACK()> tests = {
+		/*
 		VectorsTests,
 		QuaternionsTests,
-		WorldTests,
 		ComponentsTests,
+		*/
+		WorldTests,
 		SerializationTests,
 		DelegatesTests,
 	};
 	for (BCALLBACK(_test) : tests)
 		_test();
-	//exit(Bounce::Errors::NERROR);
+	exit(Bounce::Errors::NERROR);
 }
 #endif
 

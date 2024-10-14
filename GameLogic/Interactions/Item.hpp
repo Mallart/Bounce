@@ -1,6 +1,8 @@
-#include "../include.hpp"
-#include "Object.hpp"
-namespace Bounce
+#pragma once
+#include "../../include.hpp"
+#include "../Object.hpp"
+// All that the player can interact with.
+namespace Bounce::Interactions
 {
 	// Defines the behavior of a basic player.
 	BINTERFACE(Item) : public Object
