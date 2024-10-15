@@ -3,9 +3,10 @@
 namespace Bounce::Render
 {
 	// Handles colors and transparency.
-	BCLASS(Color)
+	BSTRUCT(Color)
 	{
 		BAPROPERTY(public, protected, uint32_t, HexValue);
+	protected:
 		uint8_t CMax() { return R() > G() ? (R() > B() ? R() : (G() > B() ? G() : B())) : (G() > B() ? G() : B()); }
 		uint8_t CMin() { return R() < G() ? (R() < B() ? R() : (G() < B() ? G() : B())) : (G() < B() ? G() : B()); }
 	public:
@@ -14,19 +15,19 @@ namespace Bounce::Render
 		Color(float r, float g, float b, float a = 1.f) { HexValue = (lround(r * 255) << 24 + lround(g * 255) << 16 + lround(b * 255) << 8 + lround(a * 255)); }
 
 		// Returns the R (Red) component of this color.
-		uint8_t R() { return HexValue & 0xFF000000; }
+		uint8_t R() { return (HexValue & 0xFF000000) >> 24; }
 		// Returns the normalized (0..1) R (Red) component of this color.
 		float nR() { return R() / 255.f; }
 		// Returns the G (Green) component of this color.
-		uint8_t G() { return HexValue & 0x00FF0000; }
+		uint8_t G() { return (HexValue & 0x00FF0000) >> 16; }
 		// Returns the normalized (0..1) G (Green) component of this color.
 		float nG() { return G() / 255.f; }
 		// Returns the B (Blue) component of this color.
-		uint8_t B() { return HexValue & 0x0000FF00; }
+		uint8_t B() { return (HexValue & 0x0000FF00) >> 8; }
 		// Returns the normalized (0..1) B (Blue) component of this color.
 		float nB() { return B() / 255.f; }
 		// Returns the A (alpha) component of this color.
-		uint8_t A() { return HexValue & 0x000000FF; }
+		uint8_t A() { return (HexValue & 0x000000FF); }
 		// Returns the normalized (0..1) A (Alpha) component of this color.
 		float nA() { return A() / 255.f; }
 

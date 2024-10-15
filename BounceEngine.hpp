@@ -11,9 +11,13 @@ void InitEngine(const char* _WindowName)
 {
 	// window declaration (keep only one window)
 	glewExperimental = 1; // OSX Fix
-	glewInit();
 	BounceWindow win(_WindowName);
-	win.SetBlankColor({ .95f, .15f, .15f, .1f });
+	GLenum err = glewInit();
+	if (err != GLEW_OK)
+	{
+		::std::cout << glewGetErrorString(err) << ::std::endl;
+		exit_throw(Errors::GL_ERROR);
+	}
 	std::string glVersion = (char*)glGetString(GL_VERSION);
 	glVersion = glVersion.substr(0, glVersion.find(" "));
 

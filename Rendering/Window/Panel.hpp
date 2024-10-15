@@ -7,5 +7,9 @@ namespace Bounce::Render::UI
 	{
 	public:
 		Panel() {};
+		void Draw() override
+		{
+			UIElement::Draw();
+		}
 	};
 }

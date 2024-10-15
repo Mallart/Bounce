@@ -9,11 +9,12 @@
 
 namespace Bounce::Debug
 {
+  
 	BSCLASS(Console) : public Render::UI::Panel
 	{
 		BPROPERTY(protected, ::std::string, Logs)
 	public:
-		enum MessageType
+  enum MessageType
 		{
 			// Casual messages, logs without any real importance.
 			Message,
@@ -24,8 +25,11 @@ namespace Bounce::Debug
 			// Error that prevents the engine, game or simulation to work properly.
 			Error,
 		};
-		Console() {};
-		void Draw() override {}
+		Console() { Size = {512, 256}; StrokeSize = 20; BackgroundColor = {UIElement::DefaultBackgroundColor}; };
+    void Draw() override 
+		{
+			Panel::Draw();
+		}
 
 		// Adds a message in that console.
 		void Log(MessageType warnLevel, ::std::string message)
@@ -47,6 +51,7 @@ namespace Bounce::Debug
 			IO::Log("./console_out.log", Logs);
 			Logs.clear();
 		}
+		
 		//::std::stringstream log;
 	};
 }
