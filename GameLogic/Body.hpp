@@ -18,7 +18,7 @@ namespace Bounce
 		Body() {};
 		// Bodies are Renderable by default
 		virtual bool IsRenderable() override { return 1; }
-		virtual void draw() override
+		virtual void Draw() override
 		{
 
 		}

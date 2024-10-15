@@ -14,6 +14,7 @@
 // Engine will throw an error in a future version if you put this identifier without any constructor.
 #define BCLASS class
 #define BCLASS(name) class name; typedef name* Ref##name; class name
+#define BSTRUCT(name) struct name; typedef name* Ref##name; struct name
 // For classes that were already forward-declared.
 #define BCLASS_F(name) typedef name* Ref##name; class name
 // For template classes.

@@ -7,6 +7,6 @@ namespace Bounce::Render
 	{
 	public:
 		// Calls OpenGL to draw this object in the defined context.
-		virtual void draw() = 0;
+		virtual void Draw() = 0;
 	};
 }

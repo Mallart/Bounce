@@ -9,8 +9,11 @@ namespace Bounce::Debug
 	BSCLASS(Console) : public Render::UI::Panel
 	{
 	public:
-		Console() {};
-		void Draw() override {}
+		Console() { Size = {512, 256}; StrokeSize = 20; BackgroundColor = {UIElement::DefaultBackgroundColor}; };
+		void Draw() override 
+		{
+			Panel::Draw();
+		}
 		//::std::stringstream log;
 	};
 }

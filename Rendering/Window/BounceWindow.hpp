@@ -50,9 +50,11 @@ namespace Bounce
 
 		void Close()
 		{
+			::std::cout << "Shutting down engine..." << ::std::endl;
 			if(renderThread)
 				renderThread->join();
 			close();
+			::std::cout << "Engine shut down" << ::std::endl;
 		}
 
 		void HandleEvents()
@@ -83,17 +85,18 @@ namespace Bounce
 		static void RunWindow(RefBounceWindow w)
 		{
 			w->setActive(1);
-			glClearColor(.95, .15, .15, .1);
+			glClearColor(0, 0, 0, .1);
 
 			while (w->isOpen())
 			{
 				w->HandleEvents();
 				w->pushGLStates();
-				w->clear(sf::Color::Black);
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 				// Draw renderable objects.
 				for (Render::RefRenderable _object : w->RenderedWorld.GetRenderable())
-					dynamic_cast<Render::RefRenderable>(_object)->draw();
+					dynamic_cast<Render::RefRenderable>(_object)->Draw();
+				// Draw UI Last
+				w->UIHolder->Draw();
 				w->popGLStates();
 				// dessin dans la fenêtre
 				w->display();
