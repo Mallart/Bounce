@@ -175,8 +175,11 @@
     <ClInclude Include="Maths\Quaternion.hpp" />
     <ClInclude Include="Maths\Radians.hpp" />
     <ClInclude Include="Maths\Vectors.hpp" />
+    <ClInclude Include="Rendering\Misc\Color.hpp" />
     <ClInclude Include="Rendering\Objects\Renderable.hpp" />
     <ClInclude Include="Rendering\Window\BounceWindow.hpp" />
+    <ClInclude Include="Rendering\Window\Panel.hpp" />
+    <ClInclude Include="Rendering\Window\UIElement.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

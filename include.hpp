@@ -4,6 +4,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
+#include <thread>
 #include <functional>
 #include <string>
 #include <cstdint>

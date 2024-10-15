@@ -2,7 +2,7 @@
 #include "../../include.hpp"
 
 // Handles events, callbakcs, delegates.
-namespace Bounce::Events
+namespace Bounce::Interactions
 {
 	// A group of methods to be fired when an event occurs
 	BCLASS(Event)

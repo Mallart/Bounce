@@ -96,7 +96,7 @@ static void SerializationTests()
 #pragma region Delegates
 static void DelegatesTests()
 {
-	Bounce::Events::Event e{ []() { ::std::cout << "This is a lambda, so I guess it works !" << ::std::endl; } };
+	Bounce::Interactions::Event e{ []() { ::std::cout << "This is a lambda, so I guess it works !" << ::std::endl; } };
 	auto lambdaToRemove = []() {::std::cout << "This lambda is not supposed to show up." << ::std::endl; };
 	e.AddMethod(lambdaToRemove);
 	e.RemoveMethod(lambdaToRemove);
@@ -118,7 +118,7 @@ static void test()
 	};
 	for (BCALLBACK(_test) : tests)
 		_test();
-	exit(Bounce::Errors::NERROR);
+	//exit(Bounce::Errors::NERROR);
 }
 #endif
 

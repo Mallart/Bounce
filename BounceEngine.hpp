@@ -10,11 +10,11 @@ using namespace Bounce;
 void InitEngine(const char* _WindowName)
 {
 	// window declaration (keep only one window)
-	sf::RenderWindow window;
+	glewExperimental = 1; // OSX Fix
+	glewInit();
 	BounceWindow win(_WindowName);
 	std::string glVersion = (char*)glGetString(GL_VERSION);
 	glVersion = glVersion.substr(0, glVersion.find(" "));
-	glewInit();
 
 	if (::std::stoi(glVersion) < MIN_GL_VERSION_SUPPORTED)
 	{
