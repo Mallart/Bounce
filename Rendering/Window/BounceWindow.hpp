@@ -15,11 +15,13 @@ namespace Bounce
 	{
 		BAPROPERTY(public, protected, World, RenderedWorld)
 		BAPROPERTY(public, protected, Render::UI::RefUIHolder, UIHolder)
+		// Color that's drawn where nothing else were.
+		BAPROPERTY(public, public, Render::Color, BlankColor);
 
 		BPROPERTY(protected, ::std::thread*, renderThread);
-
+		const Render::Color DEFAULT_BLANK_COLOR{ .95f, .15f, .15f, .1f };
 	public:
-		BounceWindow(Maths::Vector2 _resolution, const char* _WindowName = "Bounce Engine")
+		BounceWindow(Maths::Vector2 _resolution, const char* _WindowName = "Bounce Engine", Render::Color blankColor = 0) : BlankColor{ blankColor }, renderThread{ 0 }
 		{
 			sf::ContextSettings settings;
 			settings.depthBits = 24;
@@ -50,8 +52,9 @@ namespace Bounce
 
 		void Close()
 		{
-			if(renderThread)
+			if (renderThread)
 				renderThread->join();
+
 			close();
 		}
 
@@ -83,13 +86,13 @@ namespace Bounce
 		static void RunWindow(RefBounceWindow w)
 		{
 			w->setActive(1);
-			glClearColor(.95, .15, .15, .1);
+			glClearColor(w->BlankColor.nR(), w->BlankColor.nG(), w->BlankColor.nB(), w->BlankColor.nA());
 
 			while (w->isOpen())
 			{
 				w->HandleEvents();
 				w->pushGLStates();
-				w->clear(sf::Color::Black);
+				//w->clear(sf::Color::Black);
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 				// Draw renderable objects.
 				for (Render::RefRenderable _object : w->RenderedWorld.GetRenderable())

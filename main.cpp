@@ -111,10 +111,10 @@ static void test()
 		VectorsTests,
 		QuaternionsTests,
 		ComponentsTests,
-		*/
-		WorldTests,
-		SerializationTests,
 		DelegatesTests,
+		SerializationTests,
+		WorldTests,
+		*/
 	};
 	for (BCALLBACK(_test) : tests)
 		_test();
