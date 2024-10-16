@@ -32,7 +32,7 @@
 #define BENUM() enum
 
 #define BSET(visibility, type, prop) visibility: void CONCAT(Set, prop) (type value) { prop = value ; }
-#define BGET(visibility, type, prop) visibility: type CONCAT(Get, prop) (void) { return prop; }
+#define BGET(visibility, type, prop) visibility: type CONCAT(Get, prop) (void) const { return prop; }
 // without visibility
 #define WV_BSET(type, prop) void CONCAT(Set, prop) (type value) { prop = value ; }
 #define WV_BGET(type, prop) type CONCAT(Get, prop) (void) { return prop ; }
