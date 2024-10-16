@@ -15,11 +15,13 @@ namespace Bounce
 	{
 		BAPROPERTY(public, protected, World, RenderedWorld)
 		BAPROPERTY(public, protected, Render::UI::RefUIHolder, UIHolder)
+		// Color that's drawn where nothing else were.
+		BAPROPERTY(public, public, Render::Color, BlankColor);
 
 		BPROPERTY(protected, ::std::thread*, renderThread);
-
+		const Render::Color DEFAULT_BLANK_COLOR{ .95f, .15f, .15f, .1f };
 	public:
-		BounceWindow(Maths::Vector2 _resolution, const char* _WindowName = "Bounce Engine")
+		BounceWindow(Maths::Vector2 _resolution, const char* _WindowName = "Bounce Engine", Render::Color blankColor = 0) : BlankColor{ blankColor }, renderThread{ 0 }
 		{
 			sf::ContextSettings settings;
 			settings.depthBits = 24;
@@ -52,7 +54,9 @@ namespace Bounce
 		{
 			::std::cout << "Shutting down engine..." << ::std::endl;
 			if(renderThread)
+
 				renderThread->join();
+
 			close();
 			::std::cout << "Engine shut down" << ::std::endl;
 		}
@@ -85,7 +89,7 @@ namespace Bounce
 		static void RunWindow(RefBounceWindow w)
 		{
 			w->setActive(1);
-			glClearColor(0, 0, 0, .1);
+			glClearColor(w->BlankColor.nR(), w->BlankColor.nG(), w->BlankColor.nB(), w->BlankColor.nA());
 
 			while (w->isOpen())
 			{
@@ -98,7 +102,7 @@ namespace Bounce
 				// Draw UI Last
 				w->UIHolder->Draw();
 				w->popGLStates();
-				// dessin dans la fenêtre
+				// dessin dans la fenÃªtre
 				w->display();
 			}
 			w->setActive(0);
